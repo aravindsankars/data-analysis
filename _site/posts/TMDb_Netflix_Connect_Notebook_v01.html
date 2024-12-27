@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Visualization &amp; Analysis – Data Analysis</title>
+<title>Data Preparation for TMDB and Netflix Titles – Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,29 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ff4371ef257df69894857e99c6ad0d06.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dec4957386d03255e1655963b31d62d3.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-530bf8e59df25186f8bffdc63bad3503.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-bd21be224d3c18e074efcd5cf41426bc.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ff4371ef257df69894857e99c6ad0d06.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-dec4957386d03255e1655963b31d62d3.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-530bf8e59df25186f8bffdc63bad3503.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-bd21be224d3c18e074efcd5cf41426bc.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,65 +102,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -139,7 +113,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Data Analysis</span>
     </a>
   </div>
@@ -150,7 +124,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Visualization &amp; Analysis</span></a>
   </li>  
 </ul>
@@ -166,15 +140,27 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#pre-covid-netflix-titles-with-tmdb" id="toc-pre-covid-netflix-titles-with-tmdb" class="nav-link active" data-scroll-target="#pre-covid-netflix-titles-with-tmdb">Pre Covid Netflix titles with TMDB</a>
+  <ul class="collapse">
+  <li><a href="#loading-and-inspecting-datasets" id="toc-loading-and-inspecting-datasets" class="nav-link" data-scroll-target="#loading-and-inspecting-datasets">1. Loading and Inspecting Datasets</a></li>
+  <li><a href="#data-cleaning-and-transformation" id="toc-data-cleaning-and-transformation" class="nav-link" data-scroll-target="#data-cleaning-and-transformation">2. Data Cleaning and Transformation</a></li>
+  <li><a href="#merging-datasets" id="toc-merging-datasets" class="nav-link" data-scroll-target="#merging-datasets">3. Merging Datasets</a></li>
+  <li><a href="#statistics-and-identifying-common-titles" id="toc-statistics-and-identifying-common-titles" class="nav-link" data-scroll-target="#statistics-and-identifying-common-titles">5. Statistics and Identifying Common Titles</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Visualization &amp; Analysis</h1>
+<h1 class="title">Data Preparation for TMDB and Netflix Titles</h1>
 </div>
 
 
@@ -191,44 +177,90 @@ window.Quarto = {
 </header>
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1735326473588" data-listing-reading-time-sort="9" data-listing-word-count-sort="1763">
-
-<div class="thumbnail">
-<a href="./posts/Analysis_Visualization.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/Analysis_Visualization_files/figure-html/cell-5-output-1.png"  class="thumbnail-image card-img"/></p>
-
-</a>
+<p>This notebook processes datasets from Netflix and TMDB to identify matching titles, explore statistics, and generate cleaned outputs. Each step is documented to ensure clarity and reproducibility.</p>
+<section id="pre-covid-netflix-titles-with-tmdb" class="level2">
+<h2 class="anchored" data-anchor-id="pre-covid-netflix-titles-with-tmdb">Pre Covid Netflix titles with TMDB</h2>
+<section id="loading-and-inspecting-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="loading-and-inspecting-datasets">1. Loading and Inspecting Datasets</h3>
+<div id="17214194" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load datasets</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pre_netflix_df <span class="op">=</span> pd.read_csv(<span class="st">'netflix_titles_1.csv'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>tmdb_df <span class="op">=</span> pd.read_csv(<span class="st">'TMDB_movie_dataset_v11.csv'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>post_netflix_df <span class="op">=</span> pd.read_csv(<span class="st">'titles.csv'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Display dataset statistics</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Netflix dataset shape:'</span>, pre_netflix_df.shape)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'TMDB dataset shape:'</span>, tmdb_df.shape)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Netflix dataset shape:'</span>, post_netflix_df.shape)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Display a few rows from each dataset</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>pre_netflix_df.head(), tmdb_df.head(), post_netflix_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-
-<div class="body">
-
-<h3 class="no-anchor listing-title"><a href="./posts/Analysis_Visualization.html" class="no-external">Analysis and Visualization:</a></h3>
-<div class="listing-subtitle"><a href="./posts/Analysis_Visualization.html" class="no-external"></a></div>
-
- 
-
-<div class="delink listing-description"><a href="./posts/Analysis_Visualization.html" class="no-external">This notebook builds on the prepared datasets from Netflix and TMDB to analyze and visualize key trends in Netflix’s movie catalog. By comparing the pre-COVID and post-COVID…</a></div>
-
+</section>
+<section id="data-cleaning-and-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning-and-transformation">2. Data Cleaning and Transformation</h3>
+<div id="90a710b1" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standardize title case to lowercase for comparison</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pre_netflix_df[<span class="st">'title_lower'</span>] <span class="op">=</span> pre_netflix_df[<span class="st">'title'</span>].<span class="bu">str</span>.lower()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>tmdb_df[<span class="st">'title_lower'</span>] <span class="op">=</span> tmdb_df[<span class="st">'title'</span>].<span class="bu">str</span>.lower()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>post_netflix_df[<span class="st">'title_lower'</span>] <span class="op">=</span> post_netflix_df[<span class="st">'title'</span>].<span class="bu">str</span>.lower()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop duplicates in datasets</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>pre_netflix_df <span class="op">=</span> pre_netflix_df.drop_duplicates(subset<span class="op">=</span>[<span class="st">'title_lower'</span>])</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>tmdb_df <span class="op">=</span> tmdb_df.drop_duplicates(subset<span class="op">=</span>[<span class="st">'title_lower'</span>])</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>post_netflix_df <span class="op">=</span> post_netflix_df.drop_duplicates(subset<span class="op">=</span>[<span class="st">'title_lower'</span>])</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Duplicates removed from datasets.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="metadata"><a href="./posts/Analysis_Visualization.html" class="no-external">
-
-</a></div>
-
+</section>
+<section id="merging-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="merging-datasets">3. Merging Datasets</h3>
+<div id="b7fb728c" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge datasets on standardized title</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pre_merged_df <span class="op">=</span> pd.merge(pre_netflix_df, tmdb_df, on<span class="op">=</span><span class="st">'title_lower'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter post-COVID titles (release year &gt;= 2020)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>post_merged_df <span class="op">=</span> post_netflix_df[post_netflix_df[<span class="st">'release_year'</span>] <span class="op">&gt;=</span> <span class="dv">2020</span>]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>post_merged_df <span class="op">=</span> pd.merge(post_netflix_df, tmdb_df, on<span class="op">=</span><span class="st">'title_lower'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Save pre merged dataset</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>pre_merged_df.to_csv(<span class="st">'filtered_titles.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Save post-COVID merged dataset</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>post_merged_df.to_csv(<span class="st">'post_matching_titles.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Pre-COVID Merged dataset shape: </span><span class="sc">{</span>merged_df<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Post-COVID merged dataset shape: </span><span class="sc">{</span>merged_post_covid<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="statistics-and-identifying-common-titles" class="level3">
+<h3 class="anchored" data-anchor-id="statistics-and-identifying-common-titles">5. Statistics and Identifying Common Titles</h3>
+<div id="2259daea" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load pre- and post-COVID datasets</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> pd.read_csv(<span class="st">'filtered_titles.csv'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>post_matching_df <span class="op">=</span> pd.read_csv(<span class="st">'post_matching_titles.csv'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Find common titles between datasets</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>common_titles <span class="op">=</span> pd.merge(filtered_df, post_matching_df, on<span class="op">=</span><span class="st">'title_lower'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Save common and remaining titles</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>common_titles.to_csv(<span class="st">'common_titles.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>filtered_remaining <span class="op">=</span> filtered_df[<span class="op">~</span>filtered_df[<span class="st">'title_lower'</span>].isin(common_titles[<span class="st">'title_lower'</span>])]</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>post_matching_remaining <span class="op">=</span> post_matching_df[<span class="op">~</span>post_matching_df[<span class="st">'title_lower'</span>].isin(common_titles[<span class="st">'title_lower'</span>])]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>filtered_remaining.to_csv(<span class="st">'filtered_remaining.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>post_matching_remaining.to_csv(<span class="st">'post_matching_remaining.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Number of common titles: </span><span class="sc">{</span>common_titles<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In this notebook, we successfully prepared and processed two datasets—Netflix and TMDB—to identify common movie titles and explore post-COVID trends. The key steps involved were:</p>
+<p>Data Loading and Inspection: Reviewed and summarized the datasets, providing an overview of their structure and content. Data Cleaning and Transformation: Standardized titles, removed duplicates, and ensured consistency for reliable comparisons. Merging and Filtering: Merged datasets based on movie titles and applied filters to focus on specific timeframes, such as post-COVID releases. Analysis and Output: Generated key statistics, identified overlaps between datasets, and exported the cleaned and filtered datasets for further analysis. This process not only streamlined the data for easier use but also highlighted important patterns, such as trends in movie releases and shared titles between platforms.</p>
 
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
