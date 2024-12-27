@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Preparation for TMDB and Netflix Titles – Data Analysis</title>
+<title>Introduction – Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -102,6 +102,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -123,14 +126,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Connecting with TMDB</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comparison-of-netflix-titles-pre-covid-and-post-covid" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Comparison of Netflix titles Pre-COVID and Post-COVID</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-comparison-of-netflix-titles-pre-covid-and-post-covid">    
+        <li>
+    <a class="dropdown-item" href="../index.html">
+ <span class="dropdown-text">Data Preparation</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../blogs.html"> 
-<span class="menu-text">Analysis</span></a>
+        <li>
+    <a class="dropdown-item" href="../analysis.html">
+ <span class="dropdown-text">Visualization &amp; Analysis</span></a>
   </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -149,13 +159,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pre-covid-netflix-titles-with-tmdb" id="toc-pre-covid-netflix-titles-with-tmdb" class="nav-link active" data-scroll-target="#pre-covid-netflix-titles-with-tmdb">Pre Covid Netflix titles with TMDB</a>
+  <li><a href="#structure-of-the-project" id="toc-structure-of-the-project" class="nav-link active" data-scroll-target="#structure-of-the-project">Structure of the Project:</a></li>
+  <li><a href="#data-preparation-for-tmdb-and-netflix-titles" id="toc-data-preparation-for-tmdb-and-netflix-titles" class="nav-link" data-scroll-target="#data-preparation-for-tmdb-and-netflix-titles">Data Preparation for TMDB and Netflix Titles</a></li>
+  <li><a href="#pre-covid-netflix-titles-with-tmdb" id="toc-pre-covid-netflix-titles-with-tmdb" class="nav-link" data-scroll-target="#pre-covid-netflix-titles-with-tmdb">Pre Covid Netflix titles with TMDB</a>
   <ul class="collapse">
   <li><a href="#loading-and-inspecting-datasets" id="toc-loading-and-inspecting-datasets" class="nav-link" data-scroll-target="#loading-and-inspecting-datasets">1. Loading and Inspecting Datasets</a></li>
   <li><a href="#data-cleaning-and-transformation" id="toc-data-cleaning-and-transformation" class="nav-link" data-scroll-target="#data-cleaning-and-transformation">2. Data Cleaning and Transformation</a></li>
   <li><a href="#merging-datasets" id="toc-merging-datasets" class="nav-link" data-scroll-target="#merging-datasets">3. Merging Datasets</a></li>
-  <li><a href="#statistics-and-identifying-common-titles" id="toc-statistics-and-identifying-common-titles" class="nav-link" data-scroll-target="#statistics-and-identifying-common-titles">5. Statistics and Identifying Common Titles</a></li>
+  <li><a href="#statistics-and-identifying-common-titles" id="toc-statistics-and-identifying-common-titles" class="nav-link" data-scroll-target="#statistics-and-identifying-common-titles">4. Statistics and Identifying Common Titles</a></li>
   </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion:</a></li>
   </ul>
 </nav>
     </div>
@@ -164,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Preparation for TMDB and Netflix Titles</h1>
+<h1 class="title">Introduction</h1>
 </div>
 
 
@@ -181,87 +194,1064 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>The impact of COVID-19 has been profound across industries, and the entertainment field is no exception. As someone with a long-standing interest in movies and a curiosity about Netflix’s business strategy, I was particularly intrigued by how the streaming giant adapted its content library in response to the pandemic. This project is an effort to explore the changes in Netflix’s movie catalog by comparing data from the pre-COVID and post-COVID periods.</p>
+<p>To enrich the analysis, I incorporated data from the TMDB dataset, which provides extensive information about movies, such as genres, popularity, and release years. By connecting Netflix’s pre- and post-COVID datasets with TMDB, I aim to identify patterns, shifts, and trends in Netflix’s content strategy.</p>
+<section id="structure-of-the-project" class="level3">
+<h3 class="anchored" data-anchor-id="structure-of-the-project">Structure of the Project:</h3>
+<p><strong>Data Preparation for TMDB and Netflix Titles:</strong></p>
+<p>The first step involved processing datasets from Netflix and TMDB to ensure consistency and quality. Titles were standardized, duplicates were removed, and pre- and post-COVID Netflix datasets were merged with the TMDB dataset through an inner join to include only matching titles. This phase focused on producing cleaned datasets that would serve as a foundation for reliable analysis.</p>
+<p><strong>Analysis and Visualization:</strong></p>
+<p>The second phase involved analyzing the prepared datasets to uncover insights about Netflix’s content strategy before and after COVID-19. Using visualizations, I explored trends such as the distribution of movies by genre, release year, and popularity, comparing pre- and post-COVID periods. The findings highlight shifts in Netflix’s catalog and provide a deeper understanding of its response to changing consumer needs during and after the pandemic.</p>
+<p>This project combines my passion for movies and data analysis to uncover meaningful insights into Netflix’s evolving content strategy, with a focus on how the pandemic influenced its movie library.</p>
+</section>
+<section id="data-preparation-for-tmdb-and-netflix-titles" class="level2">
+<h2 class="anchored" data-anchor-id="data-preparation-for-tmdb-and-netflix-titles">Data Preparation for TMDB and Netflix Titles</h2>
 <p>This notebook processes datasets from Netflix and TMDB to identify matching titles, explore statistics, and generate cleaned outputs. Each step is documented to ensure clarity and reproducibility.</p>
+</section>
 <section id="pre-covid-netflix-titles-with-tmdb" class="level2">
 <h2 class="anchored" data-anchor-id="pre-covid-netflix-titles-with-tmdb">Pre Covid Netflix titles with TMDB</h2>
 <section id="loading-and-inspecting-datasets" class="level3">
 <h3 class="anchored" data-anchor-id="loading-and-inspecting-datasets">1. Loading and Inspecting Datasets</h3>
-<div id="17214194" class="cell">
+<div id="17214194" class="cell" data-execution_count="109">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load datasets</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pre_netflix_df <span class="op">=</span> pd.read_csv(<span class="st">'netflix_titles_1.csv'</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pre_netflix_df <span class="op">=</span> pd.read_csv(<span class="st">'PreCovid_titles.csv'</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>tmdb_df <span class="op">=</span> pd.read_csv(<span class="st">'TMDB_movie_dataset_v11.csv'</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>post_netflix_df <span class="op">=</span> pd.read_csv(<span class="st">'titles.csv'</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Display dataset statistics</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Netflix dataset shape:'</span>, pre_netflix_df.shape)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'TMDB dataset shape:'</span>, tmdb_df.shape)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Netflix dataset shape:'</span>, post_netflix_df.shape)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Display a few rows from each dataset</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>pre_netflix_df.head(), tmdb_df.head(), post_netflix_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>post_netflix_df <span class="op">=</span> pd.read_csv(<span class="st">'PostCovid_titles_May2022.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I have displayed the shapes and a few titles from each dataset below. First one is pre-COVID dataset.</p>
+<div id="acf15643-8073-4030-9b6b-08648aa11afa" class="cell" data-execution_count="111">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Netflix Pre-COVID dataset shape:'</span>, pre_netflix_df.shape)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pre_netflix_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Netflix Pre-COVID dataset shape: (6234, 12)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="111">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">show_id</th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">director</th>
+<th data-quarto-table-cell-role="th">cast</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">date_added</th>
+<th data-quarto-table-cell-role="th">release_year</th>
+<th data-quarto-table-cell-role="th">rating</th>
+<th data-quarto-table-cell-role="th">duration</th>
+<th data-quarto-table-cell-role="th">listed_in</th>
+<th data-quarto-table-cell-role="th">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>81145628</td>
+<td>Movie</td>
+<td>Norm of the North: King Sized Adventure</td>
+<td>Richard Finn, Tim Maltby</td>
+<td>Alan Marriott, Andrew Toth, Brian Dobson, Cole...</td>
+<td>United States, India, South Korea, China</td>
+<td>September 9, 2019</td>
+<td>2019</td>
+<td>TV-PG</td>
+<td>90 min</td>
+<td>Children &amp; Family Movies, Comedies</td>
+<td>Before planning an awesome wedding for his gra...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>80117401</td>
+<td>Movie</td>
+<td>Jandino: Whatever it Takes</td>
+<td>NaN</td>
+<td>Jandino Asporaat</td>
+<td>United Kingdom</td>
+<td>September 9, 2016</td>
+<td>2016</td>
+<td>TV-MA</td>
+<td>94 min</td>
+<td>Stand-Up Comedy</td>
+<td>Jandino Asporaat riffs on the challenges of ra...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>70234439</td>
+<td>TV Show</td>
+<td>Transformers Prime</td>
+<td>NaN</td>
+<td>Peter Cullen, Sumalee Montano, Frank Welker, J...</td>
+<td>United States</td>
+<td>September 8, 2018</td>
+<td>2013</td>
+<td>TV-Y7-FV</td>
+<td>1 Season</td>
+<td>Kids' TV</td>
+<td>With the help of three human allies, the Autob...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>80058654</td>
+<td>TV Show</td>
+<td>Transformers: Robots in Disguise</td>
+<td>NaN</td>
+<td>Will Friedle, Darren Criss, Constance Zimmer, ...</td>
+<td>United States</td>
+<td>September 8, 2018</td>
+<td>2016</td>
+<td>TV-Y7</td>
+<td>1 Season</td>
+<td>Kids' TV</td>
+<td>When a prison ship crash unleashes hundreds of...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>80125979</td>
+<td>Movie</td>
+<td>#realityhigh</td>
+<td>Fernando Lebrija</td>
+<td>Nesta Cooper, Kate Walsh, John Michael Higgins...</td>
+<td>United States</td>
+<td>September 8, 2017</td>
+<td>2017</td>
+<td>TV-14</td>
+<td>99 min</td>
+<td>Comedies</td>
+<td>When nerdy high schooler Dani finally attracts...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Now, the TMDB dataset.</p>
+<div id="84fe8b52-352b-45f8-a33a-c217207cce0e" class="cell" data-execution_count="113">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'TMDB dataset shape:'</span>, tmdb_df.shape)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>tmdb_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>TMDB dataset shape: (1147541, 24)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="113">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">vote_average</th>
+<th data-quarto-table-cell-role="th">vote_count</th>
+<th data-quarto-table-cell-role="th">status</th>
+<th data-quarto-table-cell-role="th">release_date</th>
+<th data-quarto-table-cell-role="th">revenue</th>
+<th data-quarto-table-cell-role="th">runtime</th>
+<th data-quarto-table-cell-role="th">adult</th>
+<th data-quarto-table-cell-role="th">backdrop_path</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">original_title</th>
+<th data-quarto-table-cell-role="th">overview</th>
+<th data-quarto-table-cell-role="th">popularity</th>
+<th data-quarto-table-cell-role="th">poster_path</th>
+<th data-quarto-table-cell-role="th">tagline</th>
+<th data-quarto-table-cell-role="th">genres</th>
+<th data-quarto-table-cell-role="th">production_companies</th>
+<th data-quarto-table-cell-role="th">production_countries</th>
+<th data-quarto-table-cell-role="th">spoken_languages</th>
+<th data-quarto-table-cell-role="th">keywords</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>27205</td>
+<td>Inception</td>
+<td>8.364</td>
+<td>34495</td>
+<td>Released</td>
+<td>2010-07-15</td>
+<td>825532764</td>
+<td>148</td>
+<td>False</td>
+<td>/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg</td>
+<td>...</td>
+<td>Inception</td>
+<td>Cobb, a skilled thief who commits corporate es...</td>
+<td>83.952</td>
+<td>/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg</td>
+<td>Your mind is the scene of the crime.</td>
+<td>Action, Science Fiction, Adventure</td>
+<td>Legendary Pictures, Syncopy, Warner Bros. Pict...</td>
+<td>United Kingdom, United States of America</td>
+<td>English, French, Japanese, Swahili</td>
+<td>rescue, mission, dream, airplane, paris, franc...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>157336</td>
+<td>Interstellar</td>
+<td>8.417</td>
+<td>32571</td>
+<td>Released</td>
+<td>2014-11-05</td>
+<td>701729206</td>
+<td>169</td>
+<td>False</td>
+<td>/pbrkL804c8yAv3zBZR4QPEafpAR.jpg</td>
+<td>...</td>
+<td>Interstellar</td>
+<td>The adventures of a group of explorers who mak...</td>
+<td>140.241</td>
+<td>/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg</td>
+<td>Mankind was born on Earth. It was never meant ...</td>
+<td>Adventure, Drama, Science Fiction</td>
+<td>Legendary Pictures, Syncopy, Lynda Obst Produc...</td>
+<td>United Kingdom, United States of America</td>
+<td>English</td>
+<td>rescue, future, spacecraft, race against time,...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>155</td>
+<td>The Dark Knight</td>
+<td>8.512</td>
+<td>30619</td>
+<td>Released</td>
+<td>2008-07-16</td>
+<td>1004558444</td>
+<td>152</td>
+<td>False</td>
+<td>/nMKdUUepR0i5zn0y1T4CsSB5chy.jpg</td>
+<td>...</td>
+<td>The Dark Knight</td>
+<td>Batman raises the stakes in his war on crime. ...</td>
+<td>130.643</td>
+<td>/qJ2tW6WMUDux911r6m7haRef0WH.jpg</td>
+<td>Welcome to a world without rules.</td>
+<td>Drama, Action, Crime, Thriller</td>
+<td>DC Comics, Legendary Pictures, Syncopy, Isobel...</td>
+<td>United Kingdom, United States of America</td>
+<td>English, Mandarin</td>
+<td>joker, sadism, chaos, secret identity, crime f...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>19995</td>
+<td>Avatar</td>
+<td>7.573</td>
+<td>29815</td>
+<td>Released</td>
+<td>2009-12-15</td>
+<td>2923706026</td>
+<td>162</td>
+<td>False</td>
+<td>/vL5LR6WdxWPjLPFRLe133jXWsh5.jpg</td>
+<td>...</td>
+<td>Avatar</td>
+<td>In the 22nd century, a paraplegic Marine is di...</td>
+<td>79.932</td>
+<td>/kyeqWdyUXW608qlYkRqosgbbJyK.jpg</td>
+<td>Enter the world of Pandora.</td>
+<td>Action, Adventure, Fantasy, Science Fiction</td>
+<td>Dune Entertainment, Lightstorm Entertainment, ...</td>
+<td>United States of America, United Kingdom</td>
+<td>English, Spanish</td>
+<td>future, society, culture clash, space travel, ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>24428</td>
+<td>The Avengers</td>
+<td>7.710</td>
+<td>29166</td>
+<td>Released</td>
+<td>2012-04-25</td>
+<td>1518815515</td>
+<td>143</td>
+<td>False</td>
+<td>/9BBTo63ANSmhC4e6r62OJFuK2GL.jpg</td>
+<td>...</td>
+<td>The Avengers</td>
+<td>When an unexpected enemy emerges and threatens...</td>
+<td>98.082</td>
+<td>/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg</td>
+<td>Some assembly required.</td>
+<td>Science Fiction, Action, Adventure</td>
+<td>Marvel Studios</td>
+<td>United States of America</td>
+<td>English, Hindi, Russian</td>
+<td>new york city, superhero, shield, based on com...</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 24 columns</p>
+</div>
+</div>
+</div>
+<p>Finally, the post-COVID dataset.</p>
+<div id="0d90d603-239b-4e2d-ba0c-9e86744496da" class="cell" data-execution_count="115">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Netflix post-COVID dataset shape:'</span>, post_netflix_df.shape)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>post_netflix_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Netflix post-COVID dataset shape: (5806, 15)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="115">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">release_year</th>
+<th data-quarto-table-cell-role="th">age_certification</th>
+<th data-quarto-table-cell-role="th">runtime</th>
+<th data-quarto-table-cell-role="th">genres</th>
+<th data-quarto-table-cell-role="th">production_countries</th>
+<th data-quarto-table-cell-role="th">seasons</th>
+<th data-quarto-table-cell-role="th">imdb_id</th>
+<th data-quarto-table-cell-role="th">imdb_score</th>
+<th data-quarto-table-cell-role="th">imdb_votes</th>
+<th data-quarto-table-cell-role="th">tmdb_popularity</th>
+<th data-quarto-table-cell-role="th">tmdb_score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>ts300399</td>
+<td>Five Came Back: The Reference Films</td>
+<td>SHOW</td>
+<td>This collection includes 12 World War II-era p...</td>
+<td>1945</td>
+<td>TV-MA</td>
+<td>48</td>
+<td>['documentation']</td>
+<td>['US']</td>
+<td>1.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.600</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>tm84618</td>
+<td>Taxi Driver</td>
+<td>MOVIE</td>
+<td>A mentally unstable Vietnam War veteran works ...</td>
+<td>1976</td>
+<td>R</td>
+<td>113</td>
+<td>['crime', 'drama']</td>
+<td>['US']</td>
+<td>NaN</td>
+<td>tt0075314</td>
+<td>8.3</td>
+<td>795222.0</td>
+<td>27.612</td>
+<td>8.2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>tm127384</td>
+<td>Monty Python and the Holy Grail</td>
+<td>MOVIE</td>
+<td>King Arthur, accompanied by his squire, recrui...</td>
+<td>1975</td>
+<td>PG</td>
+<td>91</td>
+<td>['comedy', 'fantasy']</td>
+<td>['GB']</td>
+<td>NaN</td>
+<td>tt0071853</td>
+<td>8.2</td>
+<td>530877.0</td>
+<td>18.216</td>
+<td>7.8</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>tm70993</td>
+<td>Life of Brian</td>
+<td>MOVIE</td>
+<td>Brian Cohen is an average young Jewish man, bu...</td>
+<td>1979</td>
+<td>R</td>
+<td>94</td>
+<td>['comedy']</td>
+<td>['GB']</td>
+<td>NaN</td>
+<td>tt0079470</td>
+<td>8.0</td>
+<td>392419.0</td>
+<td>17.505</td>
+<td>7.8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>tm190788</td>
+<td>The Exorcist</td>
+<td>MOVIE</td>
+<td>12-year-old Regan MacNeil begins to adapt an e...</td>
+<td>1973</td>
+<td>R</td>
+<td>133</td>
+<td>['horror']</td>
+<td>['US']</td>
+<td>NaN</td>
+<td>tt0070047</td>
+<td>8.1</td>
+<td>391942.0</td>
+<td>95.337</td>
+<td>7.7</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
 </div>
 </section>
 <section id="data-cleaning-and-transformation" class="level3">
 <h3 class="anchored" data-anchor-id="data-cleaning-and-transformation">2. Data Cleaning and Transformation</h3>
-<div id="90a710b1" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standardize title case to lowercase for comparison</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pre_netflix_df[<span class="st">'title_lower'</span>] <span class="op">=</span> pre_netflix_df[<span class="st">'title'</span>].<span class="bu">str</span>.lower()</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>tmdb_df[<span class="st">'title_lower'</span>] <span class="op">=</span> tmdb_df[<span class="st">'title'</span>].<span class="bu">str</span>.lower()</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>post_netflix_df[<span class="st">'title_lower'</span>] <span class="op">=</span> post_netflix_df[<span class="st">'title'</span>].<span class="bu">str</span>.lower()</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop duplicates in datasets</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>pre_netflix_df <span class="op">=</span> pre_netflix_df.drop_duplicates(subset<span class="op">=</span>[<span class="st">'title_lower'</span>])</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>tmdb_df <span class="op">=</span> tmdb_df.drop_duplicates(subset<span class="op">=</span>[<span class="st">'title_lower'</span>])</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>post_netflix_df <span class="op">=</span> post_netflix_df.drop_duplicates(subset<span class="op">=</span>[<span class="st">'title_lower'</span>])</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Duplicates removed from datasets.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The data cleaning and transformation steps for the source datasets are standardizing title case to lowercase and dropping duplicates in datasets.</p>
+<p>Titles in the datasets may have case differences (e.g., “Inception” vs.&nbsp;“inception”), which would otherwise be treated as distinct entries. Converting titles to lowercase standardizes them for consistent comparison and duplicate removal.</p>
+<div id="237ee67e-45d0-4dd1-aa08-1780e000d442" class="cell" data-execution_count="119">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pre_netflix_df[<span class="st">'title_lower'</span>] <span class="op">=</span> pre_netflix_df[<span class="st">'title'</span>].<span class="bu">str</span>.lower()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>tmdb_df[<span class="st">'title_lower'</span>] <span class="op">=</span> tmdb_df[<span class="st">'title'</span>].<span class="bu">str</span>.lower()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>post_netflix_df[<span class="st">'title_lower'</span>] <span class="op">=</span> post_netflix_df[<span class="st">'title'</span>].<span class="bu">str</span>.lower()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Duplicate titles can distort analysis and inflate metrics. Removing duplicates ensures the data reflects unique entries, leading to cleaner and more accurate insights.</p>
+<div id="90a710b1" class="cell" data-execution_count="121">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pre_netflix_df <span class="op">=</span> pre_netflix_df.drop_duplicates(subset<span class="op">=</span>[<span class="st">'title_lower'</span>])</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Netflix Pre-COVID dataset shape:'</span>, pre_netflix_df.shape)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>pre_netflix_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Netflix Pre-COVID dataset shape: (6169, 13)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="121">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">show_id</th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">director</th>
+<th data-quarto-table-cell-role="th">cast</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">date_added</th>
+<th data-quarto-table-cell-role="th">release_year</th>
+<th data-quarto-table-cell-role="th">rating</th>
+<th data-quarto-table-cell-role="th">duration</th>
+<th data-quarto-table-cell-role="th">listed_in</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">title_lower</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>81145628</td>
+<td>Movie</td>
+<td>Norm of the North: King Sized Adventure</td>
+<td>Richard Finn, Tim Maltby</td>
+<td>Alan Marriott, Andrew Toth, Brian Dobson, Cole...</td>
+<td>United States, India, South Korea, China</td>
+<td>September 9, 2019</td>
+<td>2019</td>
+<td>TV-PG</td>
+<td>90 min</td>
+<td>Children &amp; Family Movies, Comedies</td>
+<td>Before planning an awesome wedding for his gra...</td>
+<td>norm of the north: king sized adventure</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>80117401</td>
+<td>Movie</td>
+<td>Jandino: Whatever it Takes</td>
+<td>NaN</td>
+<td>Jandino Asporaat</td>
+<td>United Kingdom</td>
+<td>September 9, 2016</td>
+<td>2016</td>
+<td>TV-MA</td>
+<td>94 min</td>
+<td>Stand-Up Comedy</td>
+<td>Jandino Asporaat riffs on the challenges of ra...</td>
+<td>jandino: whatever it takes</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>70234439</td>
+<td>TV Show</td>
+<td>Transformers Prime</td>
+<td>NaN</td>
+<td>Peter Cullen, Sumalee Montano, Frank Welker, J...</td>
+<td>United States</td>
+<td>September 8, 2018</td>
+<td>2013</td>
+<td>TV-Y7-FV</td>
+<td>1 Season</td>
+<td>Kids' TV</td>
+<td>With the help of three human allies, the Autob...</td>
+<td>transformers prime</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>80058654</td>
+<td>TV Show</td>
+<td>Transformers: Robots in Disguise</td>
+<td>NaN</td>
+<td>Will Friedle, Darren Criss, Constance Zimmer, ...</td>
+<td>United States</td>
+<td>September 8, 2018</td>
+<td>2016</td>
+<td>TV-Y7</td>
+<td>1 Season</td>
+<td>Kids' TV</td>
+<td>When a prison ship crash unleashes hundreds of...</td>
+<td>transformers: robots in disguise</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>80125979</td>
+<td>Movie</td>
+<td>#realityhigh</td>
+<td>Fernando Lebrija</td>
+<td>Nesta Cooper, Kate Walsh, John Michael Higgins...</td>
+<td>United States</td>
+<td>September 8, 2017</td>
+<td>2017</td>
+<td>TV-14</td>
+<td>99 min</td>
+<td>Comedies</td>
+<td>When nerdy high schooler Dani finally attracts...</td>
+<td>#realityhigh</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="b260db70-1771-46ba-b57e-778c6b94e23a" class="cell" data-execution_count="122">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tmdb_df <span class="op">=</span> tmdb_df.drop_duplicates(subset<span class="op">=</span>[<span class="st">'title_lower'</span>])</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'TMDB dataset shape:'</span>, tmdb_df.shape)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>tmdb_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>TMDB dataset shape: (973912, 25)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="122">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">vote_average</th>
+<th data-quarto-table-cell-role="th">vote_count</th>
+<th data-quarto-table-cell-role="th">status</th>
+<th data-quarto-table-cell-role="th">release_date</th>
+<th data-quarto-table-cell-role="th">revenue</th>
+<th data-quarto-table-cell-role="th">runtime</th>
+<th data-quarto-table-cell-role="th">adult</th>
+<th data-quarto-table-cell-role="th">backdrop_path</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">overview</th>
+<th data-quarto-table-cell-role="th">popularity</th>
+<th data-quarto-table-cell-role="th">poster_path</th>
+<th data-quarto-table-cell-role="th">tagline</th>
+<th data-quarto-table-cell-role="th">genres</th>
+<th data-quarto-table-cell-role="th">production_companies</th>
+<th data-quarto-table-cell-role="th">production_countries</th>
+<th data-quarto-table-cell-role="th">spoken_languages</th>
+<th data-quarto-table-cell-role="th">keywords</th>
+<th data-quarto-table-cell-role="th">title_lower</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>27205</td>
+<td>Inception</td>
+<td>8.364</td>
+<td>34495</td>
+<td>Released</td>
+<td>2010-07-15</td>
+<td>825532764</td>
+<td>148</td>
+<td>False</td>
+<td>/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg</td>
+<td>...</td>
+<td>Cobb, a skilled thief who commits corporate es...</td>
+<td>83.952</td>
+<td>/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg</td>
+<td>Your mind is the scene of the crime.</td>
+<td>Action, Science Fiction, Adventure</td>
+<td>Legendary Pictures, Syncopy, Warner Bros. Pict...</td>
+<td>United Kingdom, United States of America</td>
+<td>English, French, Japanese, Swahili</td>
+<td>rescue, mission, dream, airplane, paris, franc...</td>
+<td>inception</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>157336</td>
+<td>Interstellar</td>
+<td>8.417</td>
+<td>32571</td>
+<td>Released</td>
+<td>2014-11-05</td>
+<td>701729206</td>
+<td>169</td>
+<td>False</td>
+<td>/pbrkL804c8yAv3zBZR4QPEafpAR.jpg</td>
+<td>...</td>
+<td>The adventures of a group of explorers who mak...</td>
+<td>140.241</td>
+<td>/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg</td>
+<td>Mankind was born on Earth. It was never meant ...</td>
+<td>Adventure, Drama, Science Fiction</td>
+<td>Legendary Pictures, Syncopy, Lynda Obst Produc...</td>
+<td>United Kingdom, United States of America</td>
+<td>English</td>
+<td>rescue, future, spacecraft, race against time,...</td>
+<td>interstellar</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>155</td>
+<td>The Dark Knight</td>
+<td>8.512</td>
+<td>30619</td>
+<td>Released</td>
+<td>2008-07-16</td>
+<td>1004558444</td>
+<td>152</td>
+<td>False</td>
+<td>/nMKdUUepR0i5zn0y1T4CsSB5chy.jpg</td>
+<td>...</td>
+<td>Batman raises the stakes in his war on crime. ...</td>
+<td>130.643</td>
+<td>/qJ2tW6WMUDux911r6m7haRef0WH.jpg</td>
+<td>Welcome to a world without rules.</td>
+<td>Drama, Action, Crime, Thriller</td>
+<td>DC Comics, Legendary Pictures, Syncopy, Isobel...</td>
+<td>United Kingdom, United States of America</td>
+<td>English, Mandarin</td>
+<td>joker, sadism, chaos, secret identity, crime f...</td>
+<td>the dark knight</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>19995</td>
+<td>Avatar</td>
+<td>7.573</td>
+<td>29815</td>
+<td>Released</td>
+<td>2009-12-15</td>
+<td>2923706026</td>
+<td>162</td>
+<td>False</td>
+<td>/vL5LR6WdxWPjLPFRLe133jXWsh5.jpg</td>
+<td>...</td>
+<td>In the 22nd century, a paraplegic Marine is di...</td>
+<td>79.932</td>
+<td>/kyeqWdyUXW608qlYkRqosgbbJyK.jpg</td>
+<td>Enter the world of Pandora.</td>
+<td>Action, Adventure, Fantasy, Science Fiction</td>
+<td>Dune Entertainment, Lightstorm Entertainment, ...</td>
+<td>United States of America, United Kingdom</td>
+<td>English, Spanish</td>
+<td>future, society, culture clash, space travel, ...</td>
+<td>avatar</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>24428</td>
+<td>The Avengers</td>
+<td>7.710</td>
+<td>29166</td>
+<td>Released</td>
+<td>2012-04-25</td>
+<td>1518815515</td>
+<td>143</td>
+<td>False</td>
+<td>/9BBTo63ANSmhC4e6r62OJFuK2GL.jpg</td>
+<td>...</td>
+<td>When an unexpected enemy emerges and threatens...</td>
+<td>98.082</td>
+<td>/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg</td>
+<td>Some assembly required.</td>
+<td>Science Fiction, Action, Adventure</td>
+<td>Marvel Studios</td>
+<td>United States of America</td>
+<td>English, Hindi, Russian</td>
+<td>new york city, superhero, shield, based on com...</td>
+<td>the avengers</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 25 columns</p>
+</div>
+</div>
+</div>
+<div id="0b22d835-4ec3-4a52-8da5-45fc80163bcb" class="cell" data-execution_count="123">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>post_netflix_df <span class="op">=</span> post_netflix_df.drop_duplicates(subset<span class="op">=</span>[<span class="st">'title_lower'</span>])</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Netflix Post-COVID dataset shape:'</span>, post_netflix_df.shape)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>post_netflix_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Netflix Post-COVID dataset shape: (5750, 16)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="123">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">release_year</th>
+<th data-quarto-table-cell-role="th">age_certification</th>
+<th data-quarto-table-cell-role="th">runtime</th>
+<th data-quarto-table-cell-role="th">genres</th>
+<th data-quarto-table-cell-role="th">production_countries</th>
+<th data-quarto-table-cell-role="th">seasons</th>
+<th data-quarto-table-cell-role="th">imdb_id</th>
+<th data-quarto-table-cell-role="th">imdb_score</th>
+<th data-quarto-table-cell-role="th">imdb_votes</th>
+<th data-quarto-table-cell-role="th">tmdb_popularity</th>
+<th data-quarto-table-cell-role="th">tmdb_score</th>
+<th data-quarto-table-cell-role="th">title_lower</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>ts300399</td>
+<td>Five Came Back: The Reference Films</td>
+<td>SHOW</td>
+<td>This collection includes 12 World War II-era p...</td>
+<td>1945</td>
+<td>TV-MA</td>
+<td>48</td>
+<td>['documentation']</td>
+<td>['US']</td>
+<td>1.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.600</td>
+<td>NaN</td>
+<td>five came back: the reference films</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>tm84618</td>
+<td>Taxi Driver</td>
+<td>MOVIE</td>
+<td>A mentally unstable Vietnam War veteran works ...</td>
+<td>1976</td>
+<td>R</td>
+<td>113</td>
+<td>['crime', 'drama']</td>
+<td>['US']</td>
+<td>NaN</td>
+<td>tt0075314</td>
+<td>8.3</td>
+<td>795222.0</td>
+<td>27.612</td>
+<td>8.2</td>
+<td>taxi driver</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>tm127384</td>
+<td>Monty Python and the Holy Grail</td>
+<td>MOVIE</td>
+<td>King Arthur, accompanied by his squire, recrui...</td>
+<td>1975</td>
+<td>PG</td>
+<td>91</td>
+<td>['comedy', 'fantasy']</td>
+<td>['GB']</td>
+<td>NaN</td>
+<td>tt0071853</td>
+<td>8.2</td>
+<td>530877.0</td>
+<td>18.216</td>
+<td>7.8</td>
+<td>monty python and the holy grail</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>tm70993</td>
+<td>Life of Brian</td>
+<td>MOVIE</td>
+<td>Brian Cohen is an average young Jewish man, bu...</td>
+<td>1979</td>
+<td>R</td>
+<td>94</td>
+<td>['comedy']</td>
+<td>['GB']</td>
+<td>NaN</td>
+<td>tt0079470</td>
+<td>8.0</td>
+<td>392419.0</td>
+<td>17.505</td>
+<td>7.8</td>
+<td>life of brian</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>tm190788</td>
+<td>The Exorcist</td>
+<td>MOVIE</td>
+<td>12-year-old Regan MacNeil begins to adapt an e...</td>
+<td>1973</td>
+<td>R</td>
+<td>133</td>
+<td>['horror']</td>
+<td>['US']</td>
+<td>NaN</td>
+<td>tt0070047</td>
+<td>8.1</td>
+<td>391942.0</td>
+<td>95.337</td>
+<td>7.7</td>
+<td>the exorcist</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The focus of my analysis is on movies. Removing TV shows ensures the dataset aligns with my analysis goal. Also, the number of TV shows is significantly lower compared to movies in both the datasets, further justifying the focus on movies.</p>
+<div id="7acaec8b-a744-45aa-bd9a-8aeb6cfd621a" class="cell" data-execution_count="125">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop TV shows from pre_netflix_df </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>pre_netflix_df <span class="op">=</span> pre_netflix_df[pre_netflix_df[<span class="st">'type'</span>] <span class="op">!=</span> <span class="st">"TV Show"</span>]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>pre_netflix_df.groupby(<span class="st">'type'</span>).count().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="125">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">show_id</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">director</th>
+<th data-quarto-table-cell-role="th">cast</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">date_added</th>
+<th data-quarto-table-cell-role="th">release_year</th>
+<th data-quarto-table-cell-role="th">rating</th>
+<th data-quarto-table-cell-role="th">duration</th>
+<th data-quarto-table-cell-role="th">listed_in</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">title_lower</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Movie</td>
+<td>4230</td>
+<td>4230</td>
+<td>4103</td>
+<td>3873</td>
+<td>4036</td>
+<td>4230</td>
+<td>4230</td>
+<td>4223</td>
+<td>4230</td>
+<td>4230</td>
+<td>4230</td>
+<td>4230</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="8ad34fe6-4dcb-45a7-b1de-45a1e60740e3" class="cell" data-execution_count="126">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop SHOW from post_netflix_df</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>post_netflix_df <span class="op">=</span> post_netflix_df[post_netflix_df[<span class="st">'type'</span>] <span class="op">!=</span> <span class="st">"SHOW"</span>]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>post_netflix_df.groupby(<span class="st">'type'</span>).count().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="126">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">release_year</th>
+<th data-quarto-table-cell-role="th">age_certification</th>
+<th data-quarto-table-cell-role="th">runtime</th>
+<th data-quarto-table-cell-role="th">genres</th>
+<th data-quarto-table-cell-role="th">production_countries</th>
+<th data-quarto-table-cell-role="th">seasons</th>
+<th data-quarto-table-cell-role="th">imdb_id</th>
+<th data-quarto-table-cell-role="th">imdb_score</th>
+<th data-quarto-table-cell-role="th">imdb_votes</th>
+<th data-quarto-table-cell-role="th">tmdb_popularity</th>
+<th data-quarto-table-cell-role="th">tmdb_score</th>
+<th data-quarto-table-cell-role="th">title_lower</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>MOVIE</td>
+<td>3729</td>
+<td>3728</td>
+<td>3721</td>
+<td>3729</td>
+<td>1395</td>
+<td>3729</td>
+<td>3729</td>
+<td>3729</td>
+<td>0</td>
+<td>3422</td>
+<td>3378</td>
+<td>3362</td>
+<td>3671</td>
+<td>3546</td>
+<td>3728</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
 </div>
 </section>
 <section id="merging-datasets" class="level3">
 <h3 class="anchored" data-anchor-id="merging-datasets">3. Merging Datasets</h3>
-<div id="b7fb728c" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge datasets on standardized title</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pre_merged_df <span class="op">=</span> pd.merge(pre_netflix_df, tmdb_df, on<span class="op">=</span><span class="st">'title_lower'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter post-COVID titles (release year &gt;= 2020)</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>post_merged_df <span class="op">=</span> post_netflix_df[post_netflix_df[<span class="st">'release_year'</span>] <span class="op">&gt;=</span> <span class="dv">2020</span>]</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>post_merged_df <span class="op">=</span> pd.merge(post_netflix_df, tmdb_df, on<span class="op">=</span><span class="st">'title_lower'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Save pre merged dataset</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>pre_merged_df.to_csv(<span class="st">'filtered_titles.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Save post-COVID merged dataset</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>post_merged_df.to_csv(<span class="st">'post_matching_titles.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Pre-COVID Merged dataset shape: </span><span class="sc">{</span>merged_df<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Post-COVID merged dataset shape: </span><span class="sc">{</span>merged_post_covid<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After cleaning the datasets by standardizing title cases to lowercase and removing duplicates, I merged the cleaned pre-COVID Netflix dataset and post-COVID Netflix dataset with the TMDB dataset. The merge was performed using an inner join on the standardized title column (title_lower). This approach ensures that only Netflix titles present in the TMDB dataset are included in the resulting merged datasets. The TMDB dataset contains additional information about titles, making it valuable for deeper analysis.</p>
+<div id="b7fb728c" class="cell" data-execution_count="129">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge datasets on standardized title</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>pre_merged_df <span class="op">=</span> pd.merge(pre_netflix_df, tmdb_df, on<span class="op">=</span><span class="st">'title_lower'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save pre merged dataset</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>pre_merged_df.to_csv(<span class="st">'pre_covid_merged_titles.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Pre-COVID Merged dataset shape: </span><span class="sc">{</span>pre_merged_df<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Pre-COVID Merged dataset shape: (3650, 37)</code></pre>
 </div>
+</div>
+<p>For the post-COVID Netflix dataset, an additional filter was applied to include only titles with a release year greater than or equal to 2020, ensuring that only relevant post-COVID titles are retained. After filtering, the dataset was merged with the TMDB dataset similarly using an inner join.</p>
+<div id="43f4165c-5e0c-4e61-b4b9-74385d603c8e" class="cell" data-execution_count="131">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter post-COVID titles (release year &gt;= 2020)</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>post_merged_df <span class="op">=</span> post_netflix_df[post_netflix_df[<span class="st">'release_year'</span>] <span class="op">&gt;=</span> <span class="dv">2020</span>]</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>post_merged_df <span class="op">=</span> pd.merge(post_netflix_df, tmdb_df, on<span class="op">=</span><span class="st">'title_lower'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Save post-COVID merged dataset</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>post_merged_df.to_csv(<span class="st">'post_covid_merged_titles.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Post-COVID merged dataset shape: </span><span class="sc">{</span>post_merged_df<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Post-COVID merged dataset shape: (3610, 40)</code></pre>
+</div>
+</div>
+<p>Finally, the resulting merged datasets were saved as separate CSV files:</p>
+<ul>
+<li><em>pre_covid_merged_titles.csv</em> contains the merged pre-COVID titles.</li>
+<li><em>post_covid_merged_titles.csv</em> contains the merged post-COVID titles.</li>
+</ul>
+<p>This process highlights the focus on aligning Netflix titles with TMDB data to enhance analysis capabilities. The shapes of the resulting datasets were printed to validate the number of titles retained after merging.</p>
 </section>
 <section id="statistics-and-identifying-common-titles" class="level3">
-<h3 class="anchored" data-anchor-id="statistics-and-identifying-common-titles">5. Statistics and Identifying Common Titles</h3>
-<div id="2259daea" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load pre- and post-COVID datasets</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> pd.read_csv(<span class="st">'filtered_titles.csv'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>post_matching_df <span class="op">=</span> pd.read_csv(<span class="st">'post_matching_titles.csv'</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Find common titles between datasets</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>common_titles <span class="op">=</span> pd.merge(filtered_df, post_matching_df, on<span class="op">=</span><span class="st">'title_lower'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Save common and remaining titles</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>common_titles.to_csv(<span class="st">'common_titles.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>filtered_remaining <span class="op">=</span> filtered_df[<span class="op">~</span>filtered_df[<span class="st">'title_lower'</span>].isin(common_titles[<span class="st">'title_lower'</span>])]</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>post_matching_remaining <span class="op">=</span> post_matching_df[<span class="op">~</span>post_matching_df[<span class="st">'title_lower'</span>].isin(common_titles[<span class="st">'title_lower'</span>])]</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>filtered_remaining.to_csv(<span class="st">'filtered_remaining.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>post_matching_remaining.to_csv(<span class="st">'post_matching_remaining.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Number of common titles: </span><span class="sc">{</span>common_titles<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 class="anchored" data-anchor-id="statistics-and-identifying-common-titles">4. Statistics and Identifying Common Titles</h3>
+<p>Now, I need to isolate titles from each merged dataset for detailed comparisons or trend analysis, such as studying the impact of COVID on Netflix’s content library. Also, this is required so that no duplicates are analyzed when analyzing pre-COVID and post-COVID data seperately.</p>
+<div id="2259daea" class="cell" data-execution_count="135">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load pre-COVID dataset</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> pd.read_csv(<span class="st">'pre_covid_merged_titles.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this notebook, we successfully prepared and processed two datasets—Netflix and TMDB—to identify common movie titles and explore post-COVID trends. The key steps involved were:</p>
-<p>Data Loading and Inspection: Reviewed and summarized the datasets, providing an overview of their structure and content. Data Cleaning and Transformation: Standardized titles, removed duplicates, and ensured consistency for reliable comparisons. Merging and Filtering: Merged datasets based on movie titles and applied filters to focus on specific timeframes, such as post-COVID releases. Analysis and Output: Generated key statistics, identified overlaps between datasets, and exported the cleaned and filtered datasets for further analysis. This process not only streamlined the data for easier use but also highlighted important patterns, such as trends in movie releases and shared titles between platforms.</p>
-
-
+<div id="721e4d79-a489-48a0-81ca-f651034307e4" class="cell" data-execution_count="136">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load post-COVID dataset</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>post_matching_df <span class="op">=</span> pd.read_csv(<span class="st">'post_covid_merged_titles.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="5276ca84-7b8c-4c90-bc9c-22d85aca59af" class="cell" data-execution_count="137">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find common titles between datasets</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>common_titles <span class="op">=</span> pd.merge(filtered_df, post_matching_df, on<span class="op">=</span><span class="st">'title_lower'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Save common and remaining titles</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>common_titles.to_csv(<span class="st">'common_titles.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Number of common titles: </span><span class="sc">{</span>common_titles<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of common titles: 1484</code></pre>
+</div>
+</div>
+<div id="fdaba84c-b36d-4d4e-974b-b93828d869df" class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Filtering out the remaining titles for pre-COVID</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>pre_covid_remaining <span class="op">=</span> filtered_df[<span class="op">~</span>filtered_df[<span class="st">'title_lower'</span>].isin(common_titles[<span class="st">'title_lower'</span>])]</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>pre_covid_remaining.to_csv(<span class="st">'pre_covid_remaining.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Number of pre-COVID titles: </span><span class="sc">{</span>pre_covid_remaining<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of pre-COVID titles: 2166</code></pre>
+</div>
+</div>
+<div id="1dcfbfc7-0fc3-4f49-a763-6cfec5733966" class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Filtering out the remaining titles for post-COVID</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>post_covid_remaining <span class="op">=</span> post_matching_df[<span class="op">~</span>post_matching_df[<span class="st">'title_lower'</span>].isin(common_titles[<span class="st">'title_lower'</span>])]</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>post_covid_remaining.to_csv(<span class="st">'post_covid_remaining.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Number of post-COVID titles: </span><span class="sc">{</span>post_covid_remaining<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of post-COVID titles: 2126</code></pre>
+</div>
+</div>
 </section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion:</h2>
+<p>In this notebook, we successfully prepared and processed two datasets-Netflix and TMDB-to identify common movie titles and explore post-COVID trends. The key steps involved were:</p>
+<ul>
+<li>Data Loading and Inspection: Reviewed and summarized the datasets, providing an overview of their structure and content.</li>
+<li>Data Cleaning and Transformation: Standardized titles, removed duplicates, and ensured consistency for reliable comparisons.</li>
+<li>Merging and Filtering: Merged datasets based on movie titles and applied filters to focus on specific timeframes, such as post-COVID releases.</li>
+<li>Statistics and Identifying Common Titles Generated key statistics, identified overlaps between datasets, and exported the cleaned and filtered datasets for further analysis. This process not only streamlined the data for easier use but also highlighted important patterns, such as trends in movie releases and shared titles between platforms.</li>
+</ul>
+<p><strong>If you are interested in my analysis and visualization of these data, follow this link:</strong></p>
+
+
 </section>
 
 </main> <!-- /main -->
