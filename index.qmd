@@ -1,5 +1,10 @@
 ---
-title: "Connecting with TMDB"
+title: "Data Preparation"
 listing:
   contents: posts/TMDb_Netflix_Connect_Notebook.ipynb
+---
+---
+title: "Visualization & Analysis"
+listing:
+  contents: posts/Analysis_Visualization.ipynb
 ---

@@ -9,7 +9,6 @@ website:
         href: https://github.com/aravindsankars/myData_Analysis
     left:
       - href: index.qmd
-      - href: blogs.qmd
 
 format:
   html:
