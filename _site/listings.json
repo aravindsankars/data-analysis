@@ -2,11 +2,11 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/Analysis_Visualization.html"
+      "/posts/TMDb_Netflix_Connect_Notebook.html"
     ]
   },
   {
-    "listing": "/blogs.html",
+    "listing": "/analysis.html",
     "items": [
       "/posts/Analysis_Visualization.html"
     ]

@@ -8,7 +8,10 @@ website:
       - icon: github
         href: https://github.com/aravindsankars/myData_Analysis
     left:
-      - href: index.qmd
+      - text: "Netflix titles COVID Comparison"
+        menu:
+          - index.qmd
+          - analysis.qmd
 
 format:
   html:
