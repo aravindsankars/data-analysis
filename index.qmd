@@ -1,5 +1,9 @@
 ---
-title: "Data Preparation"
-listing:
-  contents: posts/TMDb_Netflix_Connect_Notebook.ipynb
+title: "Comparison of Netflix titles pre-COVID and post-COVID"
+format: html
 ---
+
+# Introduction
+The impact of COVID-19 has been profound across industries, and the entertainment field is no exception. 
+As someone with a long-standing interest in movies and a curiosity about Netflix's business strategy, I was particularly intrigued by how the streaming giant adapted its content library in response to the pandemic.
+This project is an effort to explore the changes in Netflix's movie catalog by comparing data from the pre-COVID and post-COVID periods.

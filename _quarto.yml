@@ -11,6 +11,7 @@ website:
       - text: "Netflix titles COVID Comparison"
         menu:
           - index.qmd
+          - intro.qmd
           - analysis.qmd
 
 format:
@@ -19,6 +20,3 @@ format:
       light: minty
       dark: slate
     toc: true
-
-output-dir: _site
-homepage: intro.qmd
