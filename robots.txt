@@ -1,1 +1,1 @@
-Sitemap: https://aravindsankars.github.io/myData_Analysis/sitemap.xml
+Sitemap: https://aravindsankars.github.io/data-analysis/sitemap.xml
