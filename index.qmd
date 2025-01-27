@@ -7,3 +7,16 @@ format: html
 The impact of COVID-19 has been profound across industries, and the entertainment field is no exception. 
 As someone with a long-standing interest in movies and a curiosity about Netflix's business strategy, I was particularly intrigued by how the streaming giant adapted its content library in response to the pandemic.
 This project is an effort to explore the changes in Netflix's movie catalog by comparing data from the pre-COVID and post-COVID periods.
+
+---
+
+# Case Study: How does a bike-share navigate speedy success?
+## Introduction
+Cyclistic, a bike-share company, seeks to understand how annual members and casual riders use its service. This case study explores usage patterns, preferences, and behavioral differences to inform targeted marketing and operational strategies.
+
+The primary question addressed is: *How do annual members and casual riders use Cyclistic bikes differently?*
+
+Using visualizations, I uncover key trends in ride frequency, duration, and time-based usage, with detailed explanations and insights accompanying each analysis.
+
+### Attached Case Study Report
+Refer to the attached PDF for better understanding of the problem statement for the case study (first in the dropdown menu).

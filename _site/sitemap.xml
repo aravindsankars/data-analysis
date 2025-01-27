@@ -1,31 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://aravindsankars.github.io/myData_Analysis/hello-penguins.html</loc>
-    <lastmod>2024-12-23T07:06:07.802Z</lastmod>
+    <loc>https://aravindsankars.github.io/data-analysis/hello-penguins.html</loc>
+    <lastmod>2025-01-10T01:28:34.198Z</lastmod>
   </url>
   <url>
-    <loc>https://aravindsankars.github.io/myData_Analysis/index.html</loc>
-    <lastmod>2024-12-27T19:52:05.169Z</lastmod>
+    <loc>https://aravindsankars.github.io/data-analysis/index.html</loc>
+    <lastmod>2025-01-27T02:17:21.855Z</lastmod>
   </url>
   <url>
-    <loc>https://aravindsankars.github.io/myData_Analysis/posts/Analysis_Visualization.html</loc>
-    <lastmod>2024-12-27T19:07:53.588Z</lastmod>
+    <loc>https://aravindsankars.github.io/data-analysis/question.html</loc>
+    <lastmod>2025-01-27T02:09:05.139Z</lastmod>
   </url>
   <url>
-    <loc>https://aravindsankars.github.io/myData_Analysis/posts/TMDb_Netflix_Connect_Notebook.html</loc>
-    <lastmod>2024-12-28T17:33:51.057Z</lastmod>
+    <loc>https://aravindsankars.github.io/data-analysis/posts/Analysis_Visualization_v01.html</loc>
+    <lastmod>2025-01-10T01:28:34.215Z</lastmod>
   </url>
   <url>
-    <loc>https://aravindsankars.github.io/myData_Analysis/posts/TMDb_Netflix_Connect_Notebook_v01.html</loc>
-    <lastmod>2024-12-23T06:56:59.957Z</lastmod>
+    <loc>https://aravindsankars.github.io/data-analysis/posts/Analysis_Visualization.html</loc>
+    <lastmod>2025-01-10T01:28:34.209Z</lastmod>
   </url>
   <url>
-    <loc>https://aravindsankars.github.io/myData_Analysis/posts/Analysis_Visualization_v01.html</loc>
-    <lastmod>2024-12-23T06:57:40.003Z</lastmod>
+    <loc>https://aravindsankars.github.io/data-analysis/posts/TMDb_Netflix_Connect_Notebook.html</loc>
+    <lastmod>2025-01-10T01:28:34.216Z</lastmod>
   </url>
   <url>
-    <loc>https://aravindsankars.github.io/myData_Analysis/analysis.html</loc>
-    <lastmod>2024-12-27T19:52:01.674Z</lastmod>
+    <loc>https://aravindsankars.github.io/data-analysis/posts/TMDb_Netflix_Connect_Notebook_v01.html</loc>
+    <lastmod>2025-01-10T01:28:34.216Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aravindsankars.github.io/data-analysis/posts/Analysis_v03.html</loc>
+    <lastmod>2025-01-27T02:21:03.317Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aravindsankars.github.io/data-analysis/intro.html</loc>
+    <lastmod>2025-01-10T01:28:34.204Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aravindsankars.github.io/data-analysis/case.html</loc>
+    <lastmod>2025-01-27T02:08:44.539Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aravindsankars.github.io/data-analysis/analysis.html</loc>
+    <lastmod>2025-01-10T01:28:34.197Z</lastmod>
   </url>
 </urlset>

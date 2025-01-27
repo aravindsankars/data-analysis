@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Comparison of Netflix titles pre-COVID and post-COVID – Data Analysis</title>
+<title>Case Study Analysis – Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,7 +70,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -136,28 +196,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#case-study-how-does-a-bike-share-navigate-speedy-success" id="toc-case-study-how-does-a-bike-share-navigate-speedy-success" class="nav-link" data-scroll-target="#case-study-how-does-a-bike-share-navigate-speedy-success">Case Study: How does a bike-share navigate speedy success?</a>
-  <ul class="collapse">
-  <li><a href="#introduction-1" id="toc-introduction-1" class="nav-link" data-scroll-target="#introduction-1">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#attached-case-study-report" id="toc-attached-case-study-report" class="nav-link" data-scroll-target="#attached-case-study-report">Attached Case Study Report</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Comparison of Netflix titles pre-COVID and post-COVID</h1>
+<h1 class="title">Case Study Analysis</h1>
 </div>
 
 
@@ -174,28 +221,44 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>The impact of COVID-19 has been profound across industries, and the entertainment field is no exception. As someone with a long-standing interest in movies and a curiosity about Netflix’s business strategy, I was particularly intrigued by how the streaming giant adapted its content library in response to the pandemic. This project is an effort to explore the changes in Netflix’s movie catalog by comparing data from the pre-COVID and post-COVID periods.</p>
-<hr>
-</section>
-<section id="case-study-how-does-a-bike-share-navigate-speedy-success" class="level1">
-<h1>Case Study: How does a bike-share navigate speedy success?</h1>
-<section id="introduction-1" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-1">Introduction</h2>
-<p>Cyclistic, a bike-share company, seeks to understand how annual members and casual riders use its service. This case study explores usage patterns, preferences, and behavioral differences to inform targeted marketing and operational strategies.</p>
-<p>The primary question addressed is: <em>How do annual members and casual riders use Cyclistic bikes differently?</em></p>
-<p>Using visualizations, I uncover key trends in ride frequency, duration, and time-based usage, with detailed explanations and insights accompanying each analysis.</p>
-<section id="attached-case-study-report" class="level3">
-<h3 class="anchored" data-anchor-id="attached-case-study-report">Attached Case Study Report</h3>
-<p>Refer to the attached PDF for better understanding of the problem statement for the case study (first in the dropdown menu).</p>
 
 
-</section>
-</section>
-</section>
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1737944463317" data-listing-reading-time-sort="13" data-listing-word-count-sort="2402">
+
+<div class="thumbnail">
+<a href="./posts/Analysis_v03.html" class="no-external">
+
+<p class="card-img-top"><img src="posts/Analysis_v03_files/figure-html/cell-9-output-2.png"  class="thumbnail-image card-img"/></p>
+
+</a>
+</div>
+
+<div class="body">
+
+<h3 class="no-anchor listing-title"><a href="./posts/Analysis_v03.html" class="no-external">Case study: How does a bike-share navigate speedy success?</a></h3>
+<div class="listing-subtitle"><a href="./posts/Analysis_v03.html" class="no-external"></a></div>
+
+ 
+
+<div class="delink listing-description"><a href="./posts/Analysis_v03.html" class="no-external">Cyclistic, a bike-share company, aims to understand how different types of users—annual members and casual riders—use their service. This analysis focuses on identifying…</a></div>
+
+</div>
+<div class="metadata"><a href="./posts/Analysis_v03.html" class="no-external">
+
+</a></div>
+
+</div>
+
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

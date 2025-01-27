@@ -156,11 +156,30 @@ window.Quarto = {
     <ul class="dropdown-menu" aria-labelledby="nav-menu-netflix-titles-covid-comparison">    
         <li>
     <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">Comparison of Netflix titles pre-COVID and post-COVID</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./intro.html">
  <span class="dropdown-text">Data Preparation</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./analysis.html">
  <span class="dropdown-text">Visualization &amp; Analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-case-study-for-cyclistic" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Case Study for Cyclistic</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-case-study-for-cyclistic">    
+        <li>
+    <a class="dropdown-item" href="./question.html">
+ <span class="dropdown-text">Case Study Problem Statement</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./case.html">
+ <span class="dropdown-text">Case Study Analysis</span></a>
   </li>  
     </ul>
   </li>
@@ -209,7 +228,7 @@ window.Quarto = {
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
 
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1735326473588" data-listing-reading-time-sort="9" data-listing-word-count-sort="1763">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1736472514209" data-listing-reading-time-sort="9" data-listing-word-count-sort="1763">
 
 <div class="thumbnail">
 <a href="./posts/Analysis_Visualization.html" class="no-external">
@@ -474,7 +493,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/aravindsankars\.github\.io\/myData_Analysis\/");
+      var filterRegex = new RegExp("https:\/\/aravindsankars\.github\.io\/data-analysis\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

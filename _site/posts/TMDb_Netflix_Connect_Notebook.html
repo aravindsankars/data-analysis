@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction – Data Analysis</title>
+<title>Data Preparation: – Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,11 +133,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-netflix-titles-covid-comparison">    
         <li>
     <a class="dropdown-item" href="../index.html">
+ <span class="dropdown-text">Comparison of Netflix titles pre-COVID and post-COVID</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../intro.html">
  <span class="dropdown-text">Data Preparation</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../analysis.html">
  <span class="dropdown-text">Visualization &amp; Analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-case-study-for-cyclistic" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Case Study for Cyclistic</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-case-study-for-cyclistic">    
+        <li>
+    <a class="dropdown-item" href="../question.html">
+ <span class="dropdown-text">Case Study Problem Statement</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../case.html">
+ <span class="dropdown-text">Case Study Analysis</span></a>
   </li>  
     </ul>
   </li>
@@ -177,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction</h1>
+<h1 class="title">Data Preparation:</h1>
 </div>
 
 
@@ -194,7 +213,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The impact of COVID-19 has been profound across industries, and the entertainment field is no exception. As someone with a long-standing interest in movies and a curiosity about Netflix’s business strategy, I was particularly intrigued by how the streaming giant adapted its content library in response to the pandemic. This project is an effort to explore the changes in Netflix’s movie catalog by comparing data from the pre-COVID and post-COVID periods.</p>
 <p>To enrich the analysis, I incorporated data from the TMDB dataset, which provides extensive information about movies, such as genres, popularity, and release years. By connecting Netflix’s pre- and post-COVID datasets with TMDB, I aim to identify patterns, shifts, and trends in Netflix’s content strategy.</p>
 <section id="structure-of-the-project" class="level3">
 <h3 class="anchored" data-anchor-id="structure-of-the-project">Structure of the Project:</h3>
@@ -1488,7 +1506,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/aravindsankars\.github\.io\/myData_Analysis\/");
+      var filterRegex = new RegExp("https:\/\/aravindsankars\.github\.io\/data-analysis\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
