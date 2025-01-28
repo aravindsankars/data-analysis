@@ -10,12 +10,10 @@ website:
     left:
       - text: "Netflix titles COVID Comparison"
         menu:
-          - index.qmd
           - intro.qmd
           - analysis.qmd
       - text: "Case Study for Cyclistic"
         menu:
-          - question.qmd
           - case.qmd
 
 format:

@@ -1,5 +1,0 @@
----
-title: "Case Study Problem Statement"
-listing:
-  contents: posts/Case_Study 1_How_does_a_bike-shared_navigate_speedy_success_.pdf
----

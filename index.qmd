@@ -1,12 +1,20 @@
 ---
-title: "Comparison of Netflix titles pre-COVID and post-COVID"
+title: "Data Analysis Portfolio"
 format: html
 ---
 
-# Introduction
+---
+
+# Comparison of Netflix titles pre-COVID and post-COVID
+## Introduction
 The impact of COVID-19 has been profound across industries, and the entertainment field is no exception. 
 As someone with a long-standing interest in movies and a curiosity about Netflix's business strategy, I was particularly intrigued by how the streaming giant adapted its content library in response to the pandemic.
+
 This project is an effort to explore the changes in Netflix's movie catalog by comparing data from the pre-COVID and post-COVID periods.
+
+[Refer to the data preparation notebook](posts/TMDb_Netflix_Connect_Notebook.ipynb) for the data preparation part for the project.
+
+[Refer to the analysis and visualizations notebook](posts/Analysis_Visualization.ipynb) for the detailed analysis and visualizations part for the project.
 
 ---
 
@@ -19,4 +27,6 @@ The primary question addressed is: *How do annual members and casual riders use 
 Using visualizations, I uncover key trends in ride frequency, duration, and time-based usage, with detailed explanations and insights accompanying each analysis.
 
 ### Attached Case Study Report
-Refer to the attached PDF for better understanding of the problem statement for the case study (first in the dropdown menu).
+[Refer to the attached case study notebook](posts/Analysis_v03.ipynb) for a detailed analysis.
+
+[Refer to the attached problem statement](posts/Case_Study_How_does_a_bike-shared_navigate_speedy_success_.pdf) for better understanding of the problem statement for the case study.
