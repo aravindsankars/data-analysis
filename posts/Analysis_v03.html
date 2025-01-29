@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Case study: How does a bike-share navigate speedy success? – Data Analysis</title>
+<title>How does a bike-share navigate speedy success? 🚴‍♂️🚴🚴‍♀️ – Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -137,28 +137,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data Preparation</a></li>
-  <li><a href="#data-cleaning-and-feature-engineering" id="toc-data-cleaning-and-feature-engineering" class="nav-link" data-scroll-target="#data-cleaning-and-feature-engineering">Data Cleaning and Feature Engineering</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction🎬🚲</a></li>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data Preparation 👨‍🍳</a></li>
+  <li><a href="#data-cleaning-and-feature-engineering" id="toc-data-cleaning-and-feature-engineering" class="nav-link" data-scroll-target="#data-cleaning-and-feature-engineering">Data Cleaning and Feature Engineering 🧹</a>
   <ul class="collapse">
   <li><a href="#insights" id="toc-insights" class="nav-link" data-scroll-target="#insights">Insights</a></li>
   </ul></li>
-  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization 📊</a>
   <ul class="collapse">
   <li><a href="#bar-chart-total-rides-by-day-of-the-week" id="toc-bar-chart-total-rides-by-day-of-the-week" class="nav-link" data-scroll-target="#bar-chart-total-rides-by-day-of-the-week">1. Bar Chart: Total rides by day of the week</a></li>
   <li><a href="#heatmap-rides-by-hour-of-day-vs.-day-of-week" id="toc-heatmap-rides-by-hour-of-day-vs.-day-of-week" class="nav-link" data-scroll-target="#heatmap-rides-by-hour-of-day-vs.-day-of-week">2. Heatmap: Rides by hour of day vs.&nbsp;day of week</a></li>
   <li><a href="#line-chart-trends-in-total-rides-by-hour-of-the-day" id="toc-line-chart-trends-in-total-rides-by-hour-of-the-day" class="nav-link" data-scroll-target="#line-chart-trends-in-total-rides-by-hour-of-the-day">3. Line Chart: Trends in total rides by hour of the day</a></li>
   <li><a href="#box-plot-compare-ride-lengths-for-casuals-vs.-members" id="toc-box-plot-compare-ride-lengths-for-casuals-vs.-members" class="nav-link" data-scroll-target="#box-plot-compare-ride-lengths-for-casuals-vs.-members">4. Box Plot: Compare ride lengths for casuals vs.&nbsp;members</a></li>
   <li><a href="#bar-plot-ride-length-vs.-hour-of-the-day" id="toc-bar-plot-ride-length-vs.-hour-of-the-day" class="nav-link" data-scroll-target="#bar-plot-ride-length-vs.-hour-of-the-day">5. Bar Plot: Ride length vs.&nbsp;hour of the day</a></li>
-  <li><a href="#bucketize-based-on-time-of-day" id="toc-bucketize-based-on-time-of-day" class="nav-link" data-scroll-target="#bucketize-based-on-time-of-day">Bucketize based on time of day</a></li>
+  <li><a href="#bucketize-based-on-time-of-day" id="toc-bucketize-based-on-time-of-day" class="nav-link" data-scroll-target="#bucketize-based-on-time-of-day">Bucketize based on time of day 🪣</a></li>
   <li><a href="#monthly-analysis-seasonal-trends-in-ridership-and-ride-length" id="toc-monthly-analysis-seasonal-trends-in-ridership-and-ride-length" class="nav-link" data-scroll-target="#monthly-analysis-seasonal-trends-in-ridership-and-ride-length">Monthly Analysis: Seasonal Trends in Ridership and Ride Length</a></li>
   </ul></li>
-  <li><a href="#final-observations" id="toc-final-observations" class="nav-link" data-scroll-target="#final-observations">Final Observations:</a>
+  <li><a href="#final-observations" id="toc-final-observations" class="nav-link" data-scroll-target="#final-observations">Final Observations: 🕵️</a>
   <ul class="collapse">
   <li><a href="#opportunities-to-convert-casual-riders" id="toc-opportunities-to-convert-casual-riders" class="nav-link" data-scroll-target="#opportunities-to-convert-casual-riders">Opportunities to Convert Casual Riders</a></li>
   <li><a href="#recommendations-for-digital-media-strategy" id="toc-recommendations-for-digital-media-strategy" class="nav-link" data-scroll-target="#recommendations-for-digital-media-strategy">Recommendations for Digital Media Strategy</a></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion 🏁🚲</a></li>
   </ul>
 </nav>
     </div>
@@ -167,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Case study: How does a bike-share navigate speedy success?</h1>
+<h1 class="title">How does a bike-share navigate speedy success? 🚴‍♂️🚴🚴‍♀️</h1>
 </div>
 
 
@@ -185,14 +185,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<h2 class="anchored" data-anchor-id="introduction">Introduction🎬🚲</h2>
 <p>Cyclistic, a bike-share company, aims to understand how different types of users—annual members and casual riders—use their service. This analysis focuses on identifying usage patterns, preferences, and behavioral differences between these two groups. By using the provided dataset, we can uncover actionable insights that support targeted marketing and operational strategies to optimize Cyclistic’s services.</p>
 <p>The primary question this case study seeks to address is: How do annual members and casual riders use Cyclistic bikes differently?</p>
 <p>The other two questions are: Why would casual riders buy Cyclistic annual memberships? How can Cyclistic use digital media to influence casual riders to become members?</p>
 <p>Using visualizations, we analyze key trends such as ride frequency, duration, and time-based usage patterns. Each visualization is accompanied by an explanation of its purpose and refined observations derived from the analysis.</p>
 </section>
 <section id="data-preparation" class="level2">
-<h2 class="anchored" data-anchor-id="data-preparation">Data Preparation</h2>
+<h2 class="anchored" data-anchor-id="data-preparation">Data Preparation 👨‍🍳</h2>
 <p>To begin the analysis, the first step involved loading the combined dataset containing ride data for a full year. The dataset was prepared by merging monthly ride data files into a single comprehensive file, ensuring all records were consolidated for analysis. This file, named combined_data.csv, was then loaded into a pandas DataFrame for further exploration and processing. Dataset source: https://divvy-tripdata.s3.amazonaws.com/index.html</p>
 <div id="ea3e32b8-2666-4d0b-9acd-d0b029df8fd2" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -238,7 +238,7 @@ Combined dataset has 5860568 rows and 13 columns.</code></pre>
 </div>
 </section>
 <section id="data-cleaning-and-feature-engineering" class="level2">
-<h2 class="anchored" data-anchor-id="data-cleaning-and-feature-engineering">Data Cleaning and Feature Engineering</h2>
+<h2 class="anchored" data-anchor-id="data-cleaning-and-feature-engineering">Data Cleaning and Feature Engineering 🧹</h2>
 <p>The next step in the analysis involved cleaning the dataset and engineering new features to derive meaningful insights.</p>
 <section id="cleaning-the-datetime-columns" class="level4">
 <h4 class="anchored" data-anchor-id="cleaning-the-datetime-columns">Cleaning the DateTime Columns</h4>
@@ -360,7 +360,7 @@ Combined dataset has 5860568 rows and 13 columns.</code></pre>
 </section>
 </section>
 <section id="visualization" class="level2">
-<h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
+<h2 class="anchored" data-anchor-id="visualization">Visualization 📊</h2>
 <p>To gain actionable insights into the behavior and preferences of Cyclistic’s casual and member riders, we employ a series of targeted visualizations. These plots not only uncover patterns in ridership but also highlight key differences between the two groups. These visualizations collectively address the primary question: <em>How do annual members and casual riders use Cyclistic bikes differently?</em></p>
 <section id="bar-chart-total-rides-by-day-of-the-week" class="level3">
 <h3 class="anchored" data-anchor-id="bar-chart-total-rides-by-day-of-the-week">1. Bar Chart: Total rides by day of the week</h3>
@@ -636,7 +636,7 @@ Combined dataset has 5860568 rows and 13 columns.</code></pre>
 <p>There is a dip in the duration in the late night and early morning hours for casual members. The early morning casuals have the lowest ride lengths and this suggests that these casuals might be using it for commute purposes like going to their gym in the early morning. These people have the most probability of converting to annual members.</p>
 </section>
 <section id="bucketize-based-on-time-of-day" class="level3">
-<h3 class="anchored" data-anchor-id="bucketize-based-on-time-of-day">Bucketize based on time of day</h3>
+<h3 class="anchored" data-anchor-id="bucketize-based-on-time-of-day">Bucketize based on time of day 🪣</h3>
 <p>Categorize rides into time periods (Morning, Afternoon, Evening, Night) to analyze patterns in conjunction with rider type and day of the week.</p>
 <ul>
 <li>Categorized hours of the day into four time buckets.</li>
@@ -829,7 +829,7 @@ Combined dataset has 5860568 rows and 13 columns.</code></pre>
 </section>
 </section>
 <section id="final-observations" class="level2">
-<h2 class="anchored" data-anchor-id="final-observations">Final Observations:</h2>
+<h2 class="anchored" data-anchor-id="final-observations">Final Observations: 🕵️</h2>
 <p><strong>1. Time-of-Day Analysis</strong> - Casual riders prefer afternoons and evenings, with weekends (Saturday and Sunday) showing the highest activity. - Member ridership peaks in the mornings and evenings on weekdays, consistent with typical work commute patterns. The heatmaps highlight that both rider types have distinct preferences in terms of time of day and day of the week.</p>
 <p><strong>2. Ride Length Distribution</strong> - Casual riders generally have longer ride lengths compared to members, with many rides exceeding 30 minutes. - Member riders have shorter, more uniform ride durations, aligning with routine travel needs. The ride length distribution indicates casual riders utilize the service more for recreation, while members are focused on efficiency.</p>
 <p><strong>3. Peak vs Non-Peak Hour Analysis</strong> - Casual riders dominate during non-peak hours, likely due to flexible schedules or recreational use. - Members primarily use the service during peak hours, indicating routine commuting. Average ride length during non-peak hours is significantly higher for casual riders, suggesting leisurely rides.</p>
@@ -890,7 +890,7 @@ Members exhibit consistent usage patterns aligned with workday commutes, peaking
 </section>
 </section>
 <section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion 🏁🚲</h2>
 <p>By targeting casual riders who exhibit consistent behaviors similar to members, emphasizing the financial and convenience benefits of memberships, and creating tailored digital campaigns, Cyclistic can effectively convert casual riders into loyal annual members. Additionally, using data insights to address specific use cases, such as short commutes during mornings or recreational rides during summer, will strengthen engagement and drive membership growth.</p>
 
 
