@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Case study: How does a bike-share navigate speedy success? – Data Analysis</title>
+<title>How does a bike-share navigate speedy success? 🚴‍♂️🚴🚴‍♀️ – Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,44 +120,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">Data Analysis</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-netflix-titles-covid-comparison" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Netflix titles COVID Comparison</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-netflix-titles-covid-comparison">    
-        <li>
-    <a class="dropdown-item" href="../intro.html">
- <span class="dropdown-text">Data Preparation</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../analysis.html">
- <span class="dropdown-text">Visualization &amp; Analysis</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-case-study-for-cyclistic" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Case Study for Cyclistic</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-case-study-for-cyclistic">    
-        <li>
-    <a class="dropdown-item" href="../case.html">
- <span class="dropdown-text">Case Study Analysis</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+        <div class="quarto-navbar-tools tools-end">
     <a href="https://github.com/aravindsankars/myData_Analysis" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -170,29 +137,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data Preparation</a></li>
-  <li><a href="#data-cleaning-and-feature-engineering" id="toc-data-cleaning-and-feature-engineering" class="nav-link" data-scroll-target="#data-cleaning-and-feature-engineering">Data Cleaning and Feature Engineering</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction🎬🚲</a></li>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data Preparation 👨‍🍳</a></li>
+  <li><a href="#data-cleaning-and-feature-engineering" id="toc-data-cleaning-and-feature-engineering" class="nav-link" data-scroll-target="#data-cleaning-and-feature-engineering">Data Cleaning and Feature Engineering 🧹</a>
   <ul class="collapse">
   <li><a href="#insights" id="toc-insights" class="nav-link" data-scroll-target="#insights">Insights</a></li>
   </ul></li>
-  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization 📊</a>
   <ul class="collapse">
   <li><a href="#bar-chart-total-rides-by-day-of-the-week" id="toc-bar-chart-total-rides-by-day-of-the-week" class="nav-link" data-scroll-target="#bar-chart-total-rides-by-day-of-the-week">1. Bar Chart: Total rides by day of the week</a></li>
   <li><a href="#heatmap-rides-by-hour-of-day-vs.-day-of-week" id="toc-heatmap-rides-by-hour-of-day-vs.-day-of-week" class="nav-link" data-scroll-target="#heatmap-rides-by-hour-of-day-vs.-day-of-week">2. Heatmap: Rides by hour of day vs.&nbsp;day of week</a></li>
   <li><a href="#line-chart-trends-in-total-rides-by-hour-of-the-day" id="toc-line-chart-trends-in-total-rides-by-hour-of-the-day" class="nav-link" data-scroll-target="#line-chart-trends-in-total-rides-by-hour-of-the-day">3. Line Chart: Trends in total rides by hour of the day</a></li>
   <li><a href="#box-plot-compare-ride-lengths-for-casuals-vs.-members" id="toc-box-plot-compare-ride-lengths-for-casuals-vs.-members" class="nav-link" data-scroll-target="#box-plot-compare-ride-lengths-for-casuals-vs.-members">4. Box Plot: Compare ride lengths for casuals vs.&nbsp;members</a></li>
   <li><a href="#bar-plot-ride-length-vs.-hour-of-the-day" id="toc-bar-plot-ride-length-vs.-hour-of-the-day" class="nav-link" data-scroll-target="#bar-plot-ride-length-vs.-hour-of-the-day">5. Bar Plot: Ride length vs.&nbsp;hour of the day</a></li>
-  <li><a href="#bucketize-based-on-time-of-day" id="toc-bucketize-based-on-time-of-day" class="nav-link" data-scroll-target="#bucketize-based-on-time-of-day">Bucketize based on time of day</a></li>
+  <li><a href="#bucketize-based-on-time-of-day" id="toc-bucketize-based-on-time-of-day" class="nav-link" data-scroll-target="#bucketize-based-on-time-of-day">Bucketize based on time of day 🪣</a></li>
   <li><a href="#monthly-analysis-seasonal-trends-in-ridership-and-ride-length" id="toc-monthly-analysis-seasonal-trends-in-ridership-and-ride-length" class="nav-link" data-scroll-target="#monthly-analysis-seasonal-trends-in-ridership-and-ride-length">Monthly Analysis: Seasonal Trends in Ridership and Ride Length</a></li>
   </ul></li>
-  <li><a href="#final-observations" id="toc-final-observations" class="nav-link" data-scroll-target="#final-observations">Final Observations:</a>
+  <li><a href="#final-observations" id="toc-final-observations" class="nav-link" data-scroll-target="#final-observations">Final Observations: 🕵️</a>
   <ul class="collapse">
-  <li><a href="#key-insights" id="toc-key-insights" class="nav-link" data-scroll-target="#key-insights">Key Insights:</a></li>
   <li><a href="#opportunities-to-convert-casual-riders" id="toc-opportunities-to-convert-casual-riders" class="nav-link" data-scroll-target="#opportunities-to-convert-casual-riders">Opportunities to Convert Casual Riders</a></li>
   <li><a href="#recommendations-for-digital-media-strategy" id="toc-recommendations-for-digital-media-strategy" class="nav-link" data-scroll-target="#recommendations-for-digital-media-strategy">Recommendations for Digital Media Strategy</a></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion 🏁🚲</a></li>
   </ul>
 </nav>
     </div>
@@ -201,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Case study: How does a bike-share navigate speedy success?</h1>
+<h1 class="title">How does a bike-share navigate speedy success? 🚴‍♂️🚴🚴‍♀️</h1>
 </div>
 
 
@@ -219,14 +185,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<h2 class="anchored" data-anchor-id="introduction">Introduction🎬🚲</h2>
 <p>Cyclistic, a bike-share company, aims to understand how different types of users—annual members and casual riders—use their service. This analysis focuses on identifying usage patterns, preferences, and behavioral differences between these two groups. By using the provided dataset, we can uncover actionable insights that support targeted marketing and operational strategies to optimize Cyclistic’s services.</p>
 <p>The primary question this case study seeks to address is: How do annual members and casual riders use Cyclistic bikes differently?</p>
 <p>The other two questions are: Why would casual riders buy Cyclistic annual memberships? How can Cyclistic use digital media to influence casual riders to become members?</p>
 <p>Using visualizations, we analyze key trends such as ride frequency, duration, and time-based usage patterns. Each visualization is accompanied by an explanation of its purpose and refined observations derived from the analysis.</p>
 </section>
 <section id="data-preparation" class="level2">
-<h2 class="anchored" data-anchor-id="data-preparation">Data Preparation</h2>
+<h2 class="anchored" data-anchor-id="data-preparation">Data Preparation 👨‍🍳</h2>
 <p>To begin the analysis, the first step involved loading the combined dataset containing ride data for a full year. The dataset was prepared by merging monthly ride data files into a single comprehensive file, ensuring all records were consolidated for analysis. This file, named combined_data.csv, was then loaded into a pandas DataFrame for further exploration and processing. Dataset source: https://divvy-tripdata.s3.amazonaws.com/index.html</p>
 <div id="ea3e32b8-2666-4d0b-9acd-d0b029df8fd2" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -272,7 +238,7 @@ Combined dataset has 5860568 rows and 13 columns.</code></pre>
 </div>
 </section>
 <section id="data-cleaning-and-feature-engineering" class="level2">
-<h2 class="anchored" data-anchor-id="data-cleaning-and-feature-engineering">Data Cleaning and Feature Engineering</h2>
+<h2 class="anchored" data-anchor-id="data-cleaning-and-feature-engineering">Data Cleaning and Feature Engineering 🧹</h2>
 <p>The next step in the analysis involved cleaning the dataset and engineering new features to derive meaningful insights.</p>
 <section id="cleaning-the-datetime-columns" class="level4">
 <h4 class="anchored" data-anchor-id="cleaning-the-datetime-columns">Cleaning the DateTime Columns</h4>
@@ -377,8 +343,14 @@ Combined dataset has 5860568 rows and 13 columns.</code></pre>
 </section>
 <section id="insights" class="level3">
 <h3 class="anchored" data-anchor-id="insights">Insights</h3>
-<p><strong>Casual Riders:</strong> - Have significantly longer ride lengths, likely indicating recreational usage. - Prefer weekends (especially Saturday) and late afternoon hours (5 PM).</p>
-<p><strong>Members:</strong> - Take shorter rides, aligning with regular commuting patterns. - Show higher activity during weekdays (especially Wednesday) at peak commuting times (5 PM).</p>
+<blockquote class="blockquote">
+<blockquote style="font-weight: bold; color: #000000;" class="blockquote">
+<strong>Casual Riders:</strong> - Have significantly longer ride lengths, likely indicating recreational usage. - Prefer weekends (especially Saturday) and late afternoon hours (5 PM).
+</blockquote>
+<blockquote style="font-weight: bold; color: #000000;" class="blockquote">
+<strong>Members:</strong> - Take shorter rides, aligning with regular commuting patterns. - Show higher activity during weekdays (especially Wednesday) at peak commuting times (5 PM).
+</blockquote>
+</blockquote>
 <p>Lets dive deeper and find out what differentiates the two groups of riders.</p>
 <p>To maintain consistency in visualizations throughout the analysis, a uniform color palette is defined at the outset.</p>
 <div id="05e46142-2645-4b39-9e5d-ff0cb13fcd13" class="cell" data-execution_count="129">
@@ -388,7 +360,7 @@ Combined dataset has 5860568 rows and 13 columns.</code></pre>
 </section>
 </section>
 <section id="visualization" class="level2">
-<h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
+<h2 class="anchored" data-anchor-id="visualization">Visualization 📊</h2>
 <p>To gain actionable insights into the behavior and preferences of Cyclistic’s casual and member riders, we employ a series of targeted visualizations. These plots not only uncover patterns in ridership but also highlight key differences between the two groups. These visualizations collectively address the primary question: <em>How do annual members and casual riders use Cyclistic bikes differently?</em></p>
 <section id="bar-chart-total-rides-by-day-of-the-week" class="level3">
 <h3 class="anchored" data-anchor-id="bar-chart-total-rides-by-day-of-the-week">1. Bar Chart: Total rides by day of the week</h3>
@@ -418,10 +390,14 @@ Combined dataset has 5860568 rows and 13 columns.</code></pre>
 </div>
 </div>
 <p>We can see that the ride counts are much higher for members than casuals with most of the rides happening during weekdays but evenly distributed for casuals on all days except on weekends where there is an increase.</p>
+<blockquote class="blockquote">
+<blockquote style="font-weight: bold; color: #000000;" class="blockquote">
 <ul>
-<li>Members exhibit higher ride counts on weekdays, with a clear drop during weekends</li>
-<li>Casual riders maintain a relatively steady ride count across the week, with significant increases on weekends</li>
+<li><strong>Members</strong> exhibit higher ride counts on weekdays, with a clear drop during weekends</li>
+<li><strong>Casual riders</strong> maintain a relatively steady ride count across the week, with significant increases on weekends</li>
 </ul>
+</blockquote>
+</blockquote>
 <p>This pattern enforces the idea that members primarily use bikes for work-related purposes, while casual riders use them for leisure activities.</p>
 </section>
 <section id="heatmap-rides-by-hour-of-day-vs.-day-of-week" class="level3">
@@ -446,11 +422,15 @@ Combined dataset has 5860568 rows and 13 columns.</code></pre>
 </div>
 </div>
 <p>As seen clearly in the heatmap, most rides happen on weekdays between 7-9AM and 3-7PM. We can safely assume that these are office timings and most of the customers use the cycles as commute to work. Additionally, on friday mornings, there are less rides while there are more in the evening. The peak hour is 3:30-5:30 pm on Mondays.</p>
+<blockquote class="blockquote">
+<blockquote style="font-weight: bold; color: #000000;" class="blockquote">
 <ul>
 <li>Most rides occur during weekdays between 7-9 AM and 3-7 PM, aligning with commuting hours</li>
 <li>Friday mornings show reduced ride activity, with an increase in the evening andthrough weekend, potentially due to casual social outings</li>
 <li>The highest peak is observed on Monday evenings (3:30–5:30 PM)</li>
 </ul>
+</blockquote>
+</blockquote>
 <p>The number of rides of members and casuals differ and a lot as we have seen from the above rider_comparison table and from the bar plot. Hence, I might be able to get more insights if I analyze the casual riders and members differently.</p>
 <section id="rides-by-hour-of-day-vs.-day-of-week-for-each-group-of-members" class="level4">
 <h4 class="anchored" data-anchor-id="rides-by-hour-of-day-vs.-day-of-week-for-each-group-of-members">Rides by hour of day vs.&nbsp;day of week for each group of members</h4>
@@ -497,10 +477,18 @@ Combined dataset has 5860568 rows and 13 columns.</code></pre>
 </div>
 </div>
 <p>When we analyze casual and members differently, we can see that members mostly use the cycles for office purposes(mornings and evenings on weekdays). Most number of casuals ride in the weekend(Saturday and Sunday) especially on Saturdays from 12PM to 5PM.</p>
+<blockquote class="blockquote">
+<blockquote style="font-weight: bold; color: #000000;" class="blockquote">
 <ul>
-<li><strong>Members</strong>: Predominantly ride during weekday mornings and evenings, indicating usage for commuting.</li>
-<li><strong>Casual Riders</strong>: Primarily ride during weekends, with peak activity on Saturdays (12 PM–5 PM), suggesting recreational or leisure use.</li>
+<li><em>Members</em>: Predominantly ride during weekday mornings and evenings, indicating usage for commuting.</li>
 </ul>
+</blockquote>
+<blockquote style="font-weight: bold; color: #000000;" class="blockquote">
+<ul>
+<li><em>Casual Riders</em>: Primarily ride during weekends, with peak activity on Saturdays (12 PM–5 PM), suggesting recreational or leisure use.</li>
+</ul>
+</blockquote>
+</blockquote>
 </section>
 </section>
 <section id="line-chart-trends-in-total-rides-by-hour-of-the-day" class="level3">
@@ -524,52 +512,107 @@ Combined dataset has 5860568 rows and 13 columns.</code></pre>
 </div>
 </div>
 </div>
+<blockquote class="blockquote">
+<blockquote style="font-weight: bold; color: #000000;" class="blockquote">
 <ul>
-<li><strong>Members</strong> show distinct peaks during morning and evening hours, reinforcing commuting patterns.</li>
-<li><strong>Casual</strong> riders have a single gradual peak in the afternoon, which correlates with recreational activity.</li>
+<li><em>Members</em> show distinct peaks during morning and evening hours, reinforcing commuting patterns.</li>
 </ul>
-</section>
+</blockquote>
+<blockquote style="font-weight: bold; color: #000000;" class="blockquote">
+<ul>
+<li><em>Casual</em> riders have a single gradual peak in the afternoon, which correlates with recreational activity.
+<blockquote class="blockquote"></blockquote></li>
+</ul>
+</blockquote>
+</blockquote></section>
 <section id="box-plot-compare-ride-lengths-for-casuals-vs.-members" class="level3">
 <h3 class="anchored" data-anchor-id="box-plot-compare-ride-lengths-for-casuals-vs.-members">4. Box Plot: Compare ride lengths for casuals vs.&nbsp;members</h3>
 <p>A box plot is used to explore the distribution of ride lengths for each rider type. It shows differences in ride duration and variability, illustrating that casual riders often have longer and more varied ride times compared to the consistent patterns of members.</p>
 <p><strong>Cleaning ride_length column</strong></p>
-<p><em>Steps:</em> - Check for and handle NaN values in the ride_length column. - Find maximum and minimum ride lengths in the dataset. - Ensure that ride_length is in a numeric format (e.g., float or integer). If it’s stored as a string, convert it to a numeric type. - Remove rides shorter than 1 minute and Cap the maximum ride length(removing outliers).</p>
-<div id="cb4f4f8a-92a2-4c4a-b21d-c3866ad1e408" class="cell" data-execution_count="291">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the maximum and minimum ride lengths</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>max_ride_length <span class="op">=</span> df[<span class="st">'ride_length'</span>].<span class="bu">max</span>()</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>min_ride_length <span class="op">=</span> df[<span class="st">'ride_length'</span>].<span class="bu">min</span>()</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Maximum Ride Length: </span><span class="sc">{</span>max_ride_length<span class="sc">}</span><span class="ss"> minutes"</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Minimum Ride Length: </span><span class="sc">{</span>min_ride_length<span class="sc">}</span><span class="ss"> minutes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Maximum Ride Length: 60.0 minutes
-Minimum Ride Length: 1.0 minutes</code></pre>
-</div>
-</div>
+<p><em>Steps:</em></p>
+<ul>
+<li>Check for and handle NaN values in the ride_length column</li>
+<li>Find maximum and minimum ride lengths in the dataset</li>
+<li>Ensure that ride_length is in a numeric format (e.g., float or integer). If it’s stored as a string, convert it to a numeric type</li>
+<li>Remove rides shorter than 1 minute and Cap the maximum ride length(removing outliers)
+</li>
+</ul>
 <div id="503e5bf8-db97-4414-b8ad-a0d18571c730" class="cell" data-execution_count="297">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for null values</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'ride_length'</span>].isnull().<span class="bu">sum</span>())</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows with NaN in ride_length</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'ride_length'</span>])</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert ride_length to numeric (e.g., if stored as strings)</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ride_length'</span>] <span class="op">=</span> pd.to_numeric(df[<span class="st">'ride_length'</span>], errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out invalid ride lengths</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[(df[<span class="st">'ride_length'</span>] <span class="op">&gt;=</span> <span class="dv">1</span>) <span class="op">&amp;</span> (df[<span class="st">'ride_length'</span>] <span class="op">&lt;=</span> <span class="dv">70</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for null values</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'ride_length'</span>].isnull().<span class="bu">sum</span>())</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows with NaN in ride_length</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'ride_length'</span>])</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert ride_length to numeric (e.g., if stored as strings)</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ride_length'</span>] <span class="op">=</span> pd.to_numeric(df[<span class="st">'ride_length'</span>], errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out invalid ride lengths</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[(df[<span class="st">'ride_length'</span>] <span class="op">&gt;=</span> <span class="dv">1</span>) <span class="op">&amp;</span> (df[<span class="st">'ride_length'</span>] <span class="op">&lt;=</span> <span class="dv">70</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0</code></pre>
 </div>
 </div>
 <div id="9934dfce-98f8-4300-9ec8-00deb41f600d" class="cell" data-execution_count="299">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'member_casual'</span>, y<span class="op">=</span><span class="st">'ride_length'</span>, hue<span class="op">=</span><span class="st">'member_casual'</span>, palette<span class="op">=</span>colors, legend<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Ride Length Distribution by Rider Type'</span>)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Rider Type'</span>)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Ride Length (minutes)'</span>)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">70</span>)</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'member_casual'</span>, y<span class="op">=</span><span class="st">'ride_length'</span>, hue<span class="op">=</span><span class="st">'member_casual'</span>, palette<span class="op">=</span>colors, legend<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Ride Length Distribution by Rider Type'</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Rider Type'</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Ride Length (minutes)'</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">70</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Analysis_v03_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>From this plot we can see that, casuals ride for more duration than members. There is more variability in ride lengths for casuals. The median of casuals is above 20 minutes and member is below 10 minutes.</p>
+<blockquote class="blockquote">
+<blockquote style="font-weight: bold; color: #000000;" class="blockquote">
+<ul>
+<li><em>Casual Riders:</em> Tend to take longer rides with greater variability and many outliers. Likely use the service for leisure or recreation.</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote class="blockquote">
+<blockquote style="font-weight: bold; color: #000000;" class="blockquote">
+<ul>
+<li><em>Member Riders:</em> Have shorter and more consistent ride lengths. Primarily use the service for regular, utilitarian travel like commuting.</li>
+</ul>
+</blockquote>
+</blockquote>
+<p>Casual riders tend to have significantly longer ride durations, with a median above 20 minutes, and show greater variability with numerous outliers. Members have shorter and more consistent ride lengths, with a median below 10 minutes.</p>
+<p>These differences align with the hypothesis that casual riders prioritize recreational trips, while members focus on efficiency.</p>
+</section>
+<section id="bar-plot-ride-length-vs.-hour-of-the-day" class="level3">
+<h3 class="anchored" data-anchor-id="bar-plot-ride-length-vs.-hour-of-the-day">5. Bar Plot: Ride length vs.&nbsp;hour of the day</h3>
+<p>This plot delves into the relationship between ride length and the hour of the day, segmented by rider type. It uncovers trends such as casual riders taking longer rides during non-peak hours, while members generally have shorter, consistent ride lengths.</p>
+<div id="0701dd01-4324-4c52-b8bf-c12dc5956a4d" class="cell" data-execution_count="304">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot a bar graph for average ride length by hour of day, grouped by rider type</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'hour_of_day'</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'ride_length'</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'member_casual'</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    errorbar<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span><span class="st">'Set1'</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Add titles and labels</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Average Ride Length vs. Hour of the Day'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Hour of Day'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Average Ride Length (minutes)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Rider Type'</span>)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>plt.xticks(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>plt.yticks(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -578,54 +621,22 @@ Minimum Ride Length: 1.0 minutes</code></pre>
 </div>
 </div>
 </div>
-<p>From this plot we can see that, casuals ride for more duration than members. There is more variability in ride lengths for casuals. The median of casuals is above 20 minutes and member is below 10 minutes.</p>
+<blockquote class="blockquote">
+<blockquote style="font-weight: bold; color: #000000;" class="blockquote">
 <ul>
-<li><p><strong>Casual Riders:</strong> Tend to take longer rides with greater variability and many outliers. Likely use the service for leisure or recreation.</p></li>
-<li><p><strong>Member Riders:</strong> Have shorter and more consistent ride lengths. Primarily use the service for regular, utilitarian travel like commuting.</p></li>
+<li><em>Casual</em> riders consistently have longer ride durations throughout the day, with peaks in the afternoon and evening hours.</li>
 </ul>
-<p>Casual riders tend to have significantly longer ride durations, with a median above 20 minutes, and show greater variability with numerous outliers. Members have shorter and more consistent ride lengths, with a median below 10 minutes.</p>
-<p>These differences align with the hypothesis that casual riders prioritize recreational trips, while members focus on efficiency.</p>
-</section>
-<section id="bar-plot-ride-length-vs.-hour-of-the-day" class="level3">
-<h3 class="anchored" data-anchor-id="bar-plot-ride-length-vs.-hour-of-the-day">5. Bar Plot: Ride length vs.&nbsp;hour of the day</h3>
-<p>This plot delves into the relationship between ride length and the hour of the day, segmented by rider type. It uncovers trends such as casual riders taking longer rides during non-peak hours, while members generally have shorter, consistent ride lengths.</p>
-<div id="0701dd01-4324-4c52-b8bf-c12dc5956a4d" class="cell" data-execution_count="304">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot a bar graph for average ride length by hour of day, grouped by rider type</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df,</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'hour_of_day'</span>,</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'ride_length'</span>,</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'member_casual'</span>,</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    errorbar<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span><span class="st">'Set1'</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Add titles and labels</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Average Ride Length vs. Hour of the Day'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Hour of Day'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Average Ride Length (minutes)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Rider Type'</span>)</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>plt.xticks(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>plt.yticks(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Analysis_v03_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>Casual</strong> riders consistently have longer ride durations throughout the day, with peaks in the afternoon and evening hours.</p>
-<p><strong>Members</strong> maintain relatively stable ride lengths, suggesting consistent usage patterns.</p>
+</blockquote>
+<blockquote style="font-weight: bold; color: #000000;" class="blockquote">
+<ul>
+<li><em>Members</em> maintain relatively stable ride lengths, suggesting consistent usage patterns.</li>
+</ul>
+</blockquote>
+</blockquote>
 <p>There is a dip in the duration in the late night and early morning hours for casual members. The early morning casuals have the lowest ride lengths and this suggests that these casuals might be using it for commute purposes like going to their gym in the early morning. These people have the most probability of converting to annual members.</p>
 </section>
 <section id="bucketize-based-on-time-of-day" class="level3">
-<h3 class="anchored" data-anchor-id="bucketize-based-on-time-of-day">Bucketize based on time of day</h3>
+<h3 class="anchored" data-anchor-id="bucketize-based-on-time-of-day">Bucketize based on time of day 🪣</h3>
 <p>Categorize rides into time periods (Morning, Afternoon, Evening, Night) to analyze patterns in conjunction with rider type and day of the week.</p>
 <ul>
 <li>Categorized hours of the day into four time buckets.</li>
@@ -637,52 +648,83 @@ Minimum Ride Length: 1.0 minutes</code></pre>
 </ul></li>
 </ul>
 <div id="f48c9fbb-8144-491c-87fd-8b650bf50ea3" class="cell" data-execution_count="88">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define hour categories</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> categorize_hour(hour):</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="dv">5</span> <span class="op">&lt;=</span> hour <span class="op">&lt;</span> <span class="dv">12</span>:</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Morning'</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="dv">12</span> <span class="op">&lt;=</span> hour <span class="op">&lt;</span> <span class="dv">17</span>:</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Afternoon'</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="dv">17</span> <span class="op">&lt;=</span> hour <span class="op">&lt;</span> <span class="dv">21</span>:</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Evening'</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Night'</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a new column for time categories</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'time_of_day'</span>] <span class="op">=</span> df[<span class="st">'hour_of_day'</span>].<span class="bu">apply</span>(categorize_hour)</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the order for time_of_day</span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>time_order <span class="op">=</span> [<span class="st">'Morning'</span>, <span class="st">'Afternoon'</span>, <span class="st">'Evening'</span>, <span class="st">'Night'</span>]</span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'time_of_day'</span>] <span class="op">=</span> pd.Categorical(df[<span class="st">'time_of_day'</span>], categories<span class="op">=</span>time_order, ordered<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyze by time of day, day of the week, and rider type</span></span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>time_analysis <span class="op">=</span> df.groupby([<span class="st">'member_casual'</span>, <span class="st">'day_of_week'</span>, <span class="st">'time_of_day'</span>], observed<span class="op">=</span><span class="va">False</span>).agg(</span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    total_rides<span class="op">=</span>(<span class="st">'ride_id'</span>, <span class="st">'count'</span>),</span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>    avg_ride_length<span class="op">=</span>(<span class="st">'ride_length'</span>, <span class="st">'mean'</span>)</span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>).reset_index()</span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Order the day_of_week column</span></span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>day_order <span class="op">=</span> [<span class="st">'Monday'</span>, <span class="st">'Tuesday'</span>, <span class="st">'Wednesday'</span>, <span class="st">'Thursday'</span>, <span class="st">'Friday'</span>, <span class="st">'Saturday'</span>, <span class="st">'Sunday'</span>]</span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>time_analysis[<span class="st">'day_of_week'</span>] <span class="op">=</span> pd.Categorical(time_analysis[<span class="st">'day_of_week'</span>], categories<span class="op">=</span>day_order, ordered<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort the results for better readability</span></span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>time_analysis.sort_values(by<span class="op">=</span>[<span class="st">'member_casual'</span>, <span class="st">'day_of_week'</span>, <span class="st">'time_of_day'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define hour categories</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> categorize_hour(hour):</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="dv">5</span> <span class="op">&lt;=</span> hour <span class="op">&lt;</span> <span class="dv">12</span>:</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Morning'</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="dv">12</span> <span class="op">&lt;=</span> hour <span class="op">&lt;</span> <span class="dv">17</span>:</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Afternoon'</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="dv">17</span> <span class="op">&lt;=</span> hour <span class="op">&lt;</span> <span class="dv">21</span>:</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Evening'</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Night'</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a new column for time categories</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'time_of_day'</span>] <span class="op">=</span> df[<span class="st">'hour_of_day'</span>].<span class="bu">apply</span>(categorize_hour)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the order for time_of_day</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>time_order <span class="op">=</span> [<span class="st">'Morning'</span>, <span class="st">'Afternoon'</span>, <span class="st">'Evening'</span>, <span class="st">'Night'</span>]</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'time_of_day'</span>] <span class="op">=</span> pd.Categorical(df[<span class="st">'time_of_day'</span>], categories<span class="op">=</span>time_order, ordered<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyze by time of day, day of the week, and rider type</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>time_analysis <span class="op">=</span> df.groupby([<span class="st">'member_casual'</span>, <span class="st">'day_of_week'</span>, <span class="st">'time_of_day'</span>], observed<span class="op">=</span><span class="va">False</span>).agg(</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    total_rides<span class="op">=</span>(<span class="st">'ride_id'</span>, <span class="st">'count'</span>),</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    avg_ride_length<span class="op">=</span>(<span class="st">'ride_length'</span>, <span class="st">'mean'</span>)</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>).reset_index()</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Order the day_of_week column</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>day_order <span class="op">=</span> [<span class="st">'Monday'</span>, <span class="st">'Tuesday'</span>, <span class="st">'Wednesday'</span>, <span class="st">'Thursday'</span>, <span class="st">'Friday'</span>, <span class="st">'Saturday'</span>, <span class="st">'Sunday'</span>]</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>time_analysis[<span class="st">'day_of_week'</span>] <span class="op">=</span> pd.Categorical(time_analysis[<span class="st">'day_of_week'</span>], categories<span class="op">=</span>day_order, ordered<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort the results for better readability</span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>time_analysis.sort_values(by<span class="op">=</span>[<span class="st">'member_casual'</span>, <span class="st">'day_of_week'</span>, <span class="st">'time_of_day'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="total-rides-heatmap" class="level4">
 <h4 class="anchored" data-anchor-id="total-rides-heatmap">Total Rides Heatmap</h4>
 <p>The heatmaps for total rides provide a detailed view of ride activity patterns for casual and member riders based on the time of day and day of the week.</p>
 <div id="7bdd450a-a405-447d-b22a-495a824dbf75" class="cell" data-execution_count="84">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a heatmap to visualize total rides by day of week and time of day for each rider type</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> rider_type <span class="kw">in</span> [<span class="st">'casual'</span>, <span class="st">'member'</span>]:</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    heatmap_data <span class="op">=</span> time_analysis[time_analysis[<span class="st">'member_casual'</span>] <span class="op">==</span> rider_type].pivot(</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>        index<span class="op">=</span><span class="st">'time_of_day'</span>, columns<span class="op">=</span><span class="st">'day_of_week'</span>, values<span class="op">=</span><span class="st">'total_rides'</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    sns.heatmap(heatmap_data, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">'.0f'</span>, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, cbar<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'Total Rides Heatmap (</span><span class="sc">{</span>rider_type<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss"> Riders)'</span>)</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Day of Week'</span>)</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Time of Day'</span>)</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a heatmap to visualize total rides by day of week and time of day for each rider type</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> rider_type <span class="kw">in</span> [<span class="st">'casual'</span>, <span class="st">'member'</span>]:</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    heatmap_data <span class="op">=</span> time_analysis[time_analysis[<span class="st">'member_casual'</span>] <span class="op">==</span> rider_type].pivot(</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        index<span class="op">=</span><span class="st">'time_of_day'</span>, columns<span class="op">=</span><span class="st">'day_of_week'</span>, values<span class="op">=</span><span class="st">'total_rides'</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    sns.heatmap(heatmap_data, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">'.0f'</span>, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, cbar<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'Total Rides Heatmap (</span><span class="sc">{</span>rider_type<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss"> Riders)'</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Day of Week'</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Time of Day'</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Analysis_v03_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Analysis_v03_files/figure-html/cell-17-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="average-ride-length-heatmap" class="level4">
+<h4 class="anchored" data-anchor-id="average-ride-length-heatmap">Average Ride Length Heatmap</h4>
+<p>The heatmaps for average ride length reveal additional insights into the nature of trips for each rider type.</p>
+<div id="b46bb4ec-1b9d-450b-9e88-c3e4eabb6537" class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a heatmap to visualize average ride length by day of week and time of day for each rider type</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> rider_type <span class="kw">in</span> [<span class="st">'casual'</span>, <span class="st">'member'</span>]:</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    heatmap_data <span class="op">=</span> time_analysis[time_analysis[<span class="st">'member_casual'</span>] <span class="op">==</span> rider_type].pivot(</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        index<span class="op">=</span><span class="st">'time_of_day'</span>, columns<span class="op">=</span><span class="st">'day_of_week'</span>, values<span class="op">=</span><span class="st">'avg_ride_length'</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    sns.heatmap(heatmap_data, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">'.1f'</span>, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, cbar<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'Average Ride Length Heatmap (</span><span class="sc">{</span>rider_type<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss"> Riders)'</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Day of Week'</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Time of Day'</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -694,37 +736,6 @@ Minimum Ride Length: 1.0 minutes</code></pre>
 <div>
 <figure class="figure">
 <p><img src="Analysis_v03_files/figure-html/cell-18-output-2.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="average-ride-length-heatmap" class="level4">
-<h4 class="anchored" data-anchor-id="average-ride-length-heatmap">Average Ride Length Heatmap</h4>
-<p>The heatmaps for average ride length reveal additional insights into the nature of trips for each rider type.</p>
-<div id="b46bb4ec-1b9d-450b-9e88-c3e4eabb6537" class="cell" data-execution_count="86">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a heatmap to visualize average ride length by day of week and time of day for each rider type</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> rider_type <span class="kw">in</span> [<span class="st">'casual'</span>, <span class="st">'member'</span>]:</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    heatmap_data <span class="op">=</span> time_analysis[time_analysis[<span class="st">'member_casual'</span>] <span class="op">==</span> rider_type].pivot(</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>        index<span class="op">=</span><span class="st">'time_of_day'</span>, columns<span class="op">=</span><span class="st">'day_of_week'</span>, values<span class="op">=</span><span class="st">'avg_ride_length'</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    sns.heatmap(heatmap_data, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">'.1f'</span>, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, cbar<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'Average Ride Length Heatmap (</span><span class="sc">{</span>rider_type<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss"> Riders)'</span>)</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Day of Week'</span>)</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Time of Day'</span>)</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Analysis_v03_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Analysis_v03_files/figure-html/cell-19-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -743,69 +754,69 @@ Minimum Ride Length: 1.0 minutes</code></pre>
 <p><strong>Data Preparation:</strong> - Extracted the month from the ride start times and arranged them chronologically for clear visualization. - Grouped the data by rider type (member_casual) and month to calculate total rides and average ride lengths.</p>
 <p><strong>Visualizations:</strong> - A bar plot was created to showcase the total rides per month, highlighting seasonal fluctuations in ridership patterns for casual and member riders. - Another bar plot was used to display the average ride length per month, providing insights into how trip durations vary with the seasons for each rider type.</p>
 <div id="b1dddde2-9ed7-4ffd-b4cb-f06a28229342" class="cell" data-execution_count="60">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract month from the started_at column</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'month'</span>] <span class="op">=</span> df[<span class="st">'started_at'</span>].dt.month_name()</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Order months chronologically for better visualization</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>month_order <span class="op">=</span> [</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'January'</span>, <span class="st">'February'</span>, <span class="st">'March'</span>, <span class="st">'April'</span>, <span class="st">'May'</span>, <span class="st">'June'</span>,</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'July'</span>, <span class="st">'August'</span>, <span class="st">'September'</span>, <span class="st">'October'</span>, <span class="st">'November'</span>, <span class="st">'December'</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Group by rider type and month to calculate total rides and average ride length</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>monthly_summary <span class="op">=</span> df.groupby([<span class="st">'member_casual'</span>, <span class="st">'month'</span>]).agg(</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    total_rides<span class="op">=</span>(<span class="st">'ride_id'</span>, <span class="st">'count'</span>),</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    avg_ride_length<span class="op">=</span>(<span class="st">'ride_length'</span>, <span class="st">'mean'</span>)</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>).reset_index()</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure months are ordered correctly</span></span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>monthly_summary[<span class="st">'month'</span>] <span class="op">=</span> pd.Categorical(monthly_summary[<span class="st">'month'</span>], categories<span class="op">=</span>month_order, ordered<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>monthly_summary <span class="op">=</span> monthly_summary.sort_values(<span class="st">'month'</span>)</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot total rides per month</span></span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>))</span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>sns.barplot(</span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>monthly_summary,</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'month'</span>,</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'total_rides'</span>,</span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'member_casual'</span>,</span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span><span class="st">'Set1'</span></span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Total Rides Per Month: Casual vs Member Riders'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Month'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Total Rides'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>plt.yticks(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Rider Type'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot average ride length per month</span></span>
-<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>))</span>
-<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>sns.barplot(</span>
-<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>monthly_summary,</span>
-<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'month'</span>,</span>
-<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'avg_ride_length'</span>,</span>
-<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'member_casual'</span>,</span>
-<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span><span class="st">'Set1'</span></span>
-<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Average Ride Length Per Month: Casual vs Member Riders'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Month'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Average Ride Length (minutes)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a>plt.yticks(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Rider Type'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb23-52"><a href="#cb23-52" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract month from the started_at column</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'month'</span>] <span class="op">=</span> df[<span class="st">'started_at'</span>].dt.month_name()</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Order months chronologically for better visualization</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>month_order <span class="op">=</span> [</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'January'</span>, <span class="st">'February'</span>, <span class="st">'March'</span>, <span class="st">'April'</span>, <span class="st">'May'</span>, <span class="st">'June'</span>,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'July'</span>, <span class="st">'August'</span>, <span class="st">'September'</span>, <span class="st">'October'</span>, <span class="st">'November'</span>, <span class="st">'December'</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Group by rider type and month to calculate total rides and average ride length</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>monthly_summary <span class="op">=</span> df.groupby([<span class="st">'member_casual'</span>, <span class="st">'month'</span>]).agg(</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    total_rides<span class="op">=</span>(<span class="st">'ride_id'</span>, <span class="st">'count'</span>),</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    avg_ride_length<span class="op">=</span>(<span class="st">'ride_length'</span>, <span class="st">'mean'</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>).reset_index()</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure months are ordered correctly</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>monthly_summary[<span class="st">'month'</span>] <span class="op">=</span> pd.Categorical(monthly_summary[<span class="st">'month'</span>], categories<span class="op">=</span>month_order, ordered<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>monthly_summary <span class="op">=</span> monthly_summary.sort_values(<span class="st">'month'</span>)</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot total rides per month</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>))</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>sns.barplot(</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>monthly_summary,</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'month'</span>,</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'total_rides'</span>,</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'member_casual'</span>,</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span><span class="st">'Set1'</span></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Total Rides Per Month: Casual vs Member Riders'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Month'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Total Rides'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>plt.yticks(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Rider Type'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot average ride length per month</span></span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>))</span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>sns.barplot(</span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>monthly_summary,</span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'month'</span>,</span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'avg_ride_length'</span>,</span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'member_casual'</span>,</span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span><span class="st">'Set1'</span></span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Average Ride Length Per Month: Casual vs Member Riders'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Month'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Average Ride Length (minutes)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a>plt.yticks(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Rider Type'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Analysis_v03_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="Analysis_v03_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Analysis_v03_files/figure-html/cell-20-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="Analysis_v03_files/figure-html/cell-19-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -818,24 +829,28 @@ Minimum Ride Length: 1.0 minutes</code></pre>
 </section>
 </section>
 <section id="final-observations" class="level2">
-<h2 class="anchored" data-anchor-id="final-observations">Final Observations:</h2>
+<h2 class="anchored" data-anchor-id="final-observations">Final Observations: 🕵️</h2>
 <p><strong>1. Time-of-Day Analysis</strong> - Casual riders prefer afternoons and evenings, with weekends (Saturday and Sunday) showing the highest activity. - Member ridership peaks in the mornings and evenings on weekdays, consistent with typical work commute patterns. The heatmaps highlight that both rider types have distinct preferences in terms of time of day and day of the week.</p>
 <p><strong>2. Ride Length Distribution</strong> - Casual riders generally have longer ride lengths compared to members, with many rides exceeding 30 minutes. - Member riders have shorter, more uniform ride durations, aligning with routine travel needs. The ride length distribution indicates casual riders utilize the service more for recreation, while members are focused on efficiency.</p>
 <p><strong>3. Peak vs Non-Peak Hour Analysis</strong> - Casual riders dominate during non-peak hours, likely due to flexible schedules or recreational use. - Members primarily use the service during peak hours, indicating routine commuting. Average ride length during non-peak hours is significantly higher for casual riders, suggesting leisurely rides.</p>
 <p><strong>4. Behavioral Analysis by Month</strong> - Casual riders exhibit higher variability in ride activity across the months, likely influenced by seasonal trends and leisure preferences. - Member riders show consistent ride activity throughout the year, reflecting regular commuting patterns. The bar plots reveal that summer months (June–August) are peak periods for casual riders, while member ridership remains steady.</p>
-<section id="key-insights" class="level3">
-<h3 class="anchored" data-anchor-id="key-insights">Key Insights:</h3>
+<blockquote class="blockquote">
+<blockquote style="font-weight: bold; color: #000000;" class="blockquote">
+<h3 id="key-insights" class="anchored">Key Insights:</h3>
+</blockquote>
+<blockquote class="blockquote">
 <p><strong>Differentiated Usage Patterns</strong></p>
-<section id="casual-riders" class="level4">
-<h4 class="anchored" data-anchor-id="casual-riders">Casual Riders:</h4>
+</blockquote>
+<blockquote class="blockquote">
+<h4 id="casual-riders" class="anchored">Casual Riders:</h4>
 <p>Casual riders primarily use Cyclistic bikes for recreational purposes during weekends, afternoons, and evenings. Their ride lengths are often longer, suggesting leisurely activities like sightseeing or social outings.</p>
+</blockquote>
 <p><strong>Notable Exception:</strong> A subset of casual riders demonstrates behavior similar to members during early morning hours, with ride lengths matching those of members. This suggests short commutes, possibly to the gym or work.</p>
-</section>
-<section id="members" class="level4">
-<h4 class="anchored" data-anchor-id="members">Members:</h4>
-<p>Members exhibit consistent usage patterns aligned with workday commutes, peaking during weekday mornings and evenings. Their shorter and more uniform ride lengths reflect an emphasis on routine, efficiency, and reliability.</p>
-</section>
-</section>
+<blockquote class="blockquote">
+<h4 id="members" class="anchored">Members:</h4>
+Members exhibit consistent usage patterns aligned with workday commutes, peaking during weekday mornings and evenings. Their shorter and more uniform ride lengths reflect an emphasis on routine, efficiency, and reliability.
+</blockquote>
+</blockquote>
 <section id="opportunities-to-convert-casual-riders" class="level3">
 <h3 class="anchored" data-anchor-id="opportunities-to-convert-casual-riders">Opportunities to Convert Casual Riders</h3>
 <p><strong>1. Target Casual Riders with Member-like Patterns</strong></p>
@@ -875,7 +890,7 @@ Minimum Ride Length: 1.0 minutes</code></pre>
 </section>
 </section>
 <section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion 🏁🚲</h2>
 <p>By targeting casual riders who exhibit consistent behaviors similar to members, emphasizing the financial and convenience benefits of memberships, and creating tailored digital campaigns, Cyclistic can effectively convert casual riders into loyal annual members. Additionally, using data insights to address specific use cases, such as short commutes during mornings or recreational rides during summer, will strengthen engagement and drive membership growth.</p>
 
 

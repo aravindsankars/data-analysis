@@ -7,14 +7,7 @@ website:
     tools:
       - icon: github
         href: https://github.com/aravindsankars/myData_Analysis
-    left:
-      - text: "Netflix titles COVID Comparison"
-        menu:
-          - intro.qmd
-          - analysis.qmd
-      - text: "Case Study for Cyclistic"
-        menu:
-          - case.qmd
+
 
 format:
   html:
